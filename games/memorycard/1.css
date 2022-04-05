@@ -1,0 +1,147 @@
+#game-wrapper{
+    width:100%;
+    height:100%;
+}
+.top{
+    position: absolute;
+    top:0px;
+}
+.right{
+    position: absolute;
+    right:0px;
+    left: auto;
+}
+.left{
+    position: absolute;
+     
+    left:0px;
+}
+.full-view{
+    width: 100%;
+    height: 100%;
+}
+.no-select{
+    user-select: none;
+}
+.pointer{
+    cursor: pointer;
+}
+.valign{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.center{
+    margin: 0 auto;
+    text-align: center;
+}
+#board{
+    
+    border-radius: 12px;
+    
+    background: #fbfdfd82;
+    max-width: 98% !important;
+    filter:grayscale(0.4); 
+}
+
+.cell{
+    
+}
+
+.cell.no-border{
+    border:none !important; 
+}
+.card{
+   
+    border-radius:12px;
+    width:calc(100% - 10px);
+    height:calc(100% - 10px);
+    cursor: pointer; 
+    background-color: transparent; 
+    perspective: 1000px;
+    user-select: none;
+}
+
+
+.card .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+  
+ .card.hidden .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .card .card-front {
+    background-color: #bbb;
+    color: black;
+  }
+  
+  .card .card-back {
+    background-color: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+  #move-text-wrapper{
+    font-size: 90px;
+    font-weight: bolder;  
+  }
+
+  #score-text-wrapper{
+    font-size: 50px;
+    font-weight: bolder; 
+  }
+
+  .progress-read-card{
+      width:100%;
+      height:30px;
+      margin-bottom:10px;
+      border-radius: 12px;
+      border:thin solid #a1a1a1;
+      overflow:hidden;
+  }
+
+  .progress-read-card .progress{
+      text-align: center;
+      height:100%;
+      background:red;
+      
+      color: white;
+  }
+
+
+#game-menu{
+    width: 100%;
+    height: 100%;
+      background-color: #cfede7;
+}
+
+#game-screen1{
+    background-color: lightpink;
+}
+
+
+#result-set{
+    width: 100%;
+    height: 100%; 
+} 
+#scrollview{
+    position: relative;
+    top:0px;
+    left: 0px;
+    transition: top 0.5s;
+}
