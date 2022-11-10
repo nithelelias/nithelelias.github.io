@@ -424,7 +424,7 @@ class LetterIA {
         if (this.exploded) {
 
             if (this.ticks > 50 && this.ticks < 100) {
-                this._element.innerHTML = this.letter + "[ Upps... ] ";
+                //this._element.innerHTML = this.letter + "[ Upps... ] ";
                 this._element.color = "blue"
             } else if (this.ticks < 50 || this.ticks == 100) {
                 this._element.style.color = "black";
@@ -438,9 +438,9 @@ class LetterIA {
                     }
                 }
             } else if (this.ticks > 10) {
-                this._element.innerHTML = this.letter + "[ Sorry... ] ";
-                this._element.color = "blue"
-                return;
+                //this._element.innerHTML = this.letter + "[ Sorry... ] ";
+                this._element.color = "white"
+                //return;
             }
 
         }
