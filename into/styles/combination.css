@@ -1,0 +1,35 @@
+html,
+body {
+    scroll-snap-type: y mandatory;
+}
+.section {
+  height: 100vh;
+
+  border: dashed;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start end;
+  scroll-snap-stop: always;
+  /* Pause the animation */
+  animation-play-state: paused !important;
+  /* Bind the animation to GENERAL scroll */
+  animation-delay: calc(var(--scroll) * -1s) !important;
+  /* These last 2 properites clean up overshoot weirdness */
+  animation-iteration-count: 1 !important;
+  animation-fill-mode: both !important;
+  animation: zoomIn 1s linear;
+}
+
+@keyframes zoomIn {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: white;
+  }
+  100% {
+    background-color: transparent;
+  }
+}

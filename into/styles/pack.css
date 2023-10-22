@@ -1,0 +1,46 @@
+.icon-pack {
+  background-color: var(--accent);
+  -webkit-mask-image: url(../assets/pack.png);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: auto;
+  width: 16px;
+  height: 16px;
+  image-rendering: pixelated;
+}
+
+.icon-pack.x2 {
+  transform: scale(2);
+}
+
+.icon-pack.door {
+  -webkit-mask-position: -128px -144px;
+}
+.icon-pack.back {
+  -webkit-mask-position: -384px -192px;
+  transform: rotate(-90deg);
+}
+.icon-pack.next {
+  -webkit-mask-position: -384px -192px;
+  transform: rotate(90deg);
+}
+.icon-pack.arrow {
+  -webkit-mask-position: -384px -192px;
+}
+.icon-pack.arrow.right {
+  transform: rotate(90deg);
+}
+.icon-pack.arrow.left {
+  transform: rotate(-90deg);
+}
+.icon-pack.arrow.down {
+  transform: rotate(180deg);
+}
+.icon-pack.chicken {
+  -webkit-mask-position: -416px -112px;
+}
+.icon-pack.egg {
+  -webkit-mask-position: -544px -272px;
+}
+.icon-pack.grass {
+  -webkit-mask-position: -80px 0px;
+}
