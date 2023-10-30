@@ -5,7 +5,7 @@ import digLinks from "./dig-link.js";
 import digNavigation from "./dig-navigation.js";
 
 function getPage(path) {
-  return fetch(`/pages/${path}.html`).then((res) => res.text());
+  return fetch(`pages/${path}.html`).then((res) => res.text());
 }
 
 export async function buildpage(container, path, navigation) {
