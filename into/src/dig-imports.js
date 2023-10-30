@@ -41,11 +41,11 @@ export default function (container) {
     importArray.forEach((file) => {
       let ext = file.split(".").pop();
       if (ext === "js") {
-        promises.push(importJS(`/components/${file}`));
+        promises.push(importJS(`components/${file}`));
         return;
       }
       if (ext === "css") {
-        promises.push(importCss(`/styles/${file}`));
+        promises.push(importCss(`styles/${file}`));
         return;
       }
     });
