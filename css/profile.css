@@ -1,6 +1,6 @@
 @font-face {
   font-family: custom-regular;
-  src: url("./fonts/hack/Hack-Regular.ttf");
+  src: url("./fonts/hack/Hack-Regular.ttf"), Roboto;
 }
 
 @font-face {
@@ -36,7 +36,7 @@ html {
 body {
   margin: 0px;
   padding: 0px;
-  font-family: custom-regular;
+  font-family: custom-regular, "Courier New", Courier, monospace;
   min-height: 99vh;
   min-height: 99vh;
 
@@ -77,12 +77,14 @@ nav {
   & a {
     text-decoration: inherit;
   }
-  &:not(.open) {
-    & a {
-      display: none;
-    }
-    & label {
-      display: none;
+  @media (max-width: 900px) {
+    &:not(.open) {
+      & a {
+        display: none;
+      }
+      & label {
+        display: none;
+      }
     }
   }
   @media (min-width: 900px) {
@@ -96,12 +98,12 @@ nav {
 header {
   text-align: center;
   position: fixed;
-
   z-index: 100;
   top: 20px;
   display: flex;
   width: 100%;
   justify-content: center;
+  height: fit-content;
 }
 
 main {
@@ -161,7 +163,8 @@ section {
 }
 footer {
   scroll-snap-align: end;
-  background-color: var(--color2);
+  font-size: 9px;
+  padding: 9px;
 }
 /**
 MODIFIERS
@@ -172,6 +175,19 @@ MODIFIERS
 /**
 CUSTOMS
 **/
+.chicken {
+  position: absolute;
+  z-index: 100;
+  top: 0px;
+  left: 0px;
+  width: 20px;
+  cursor: pointer;
+  transition: all 0.1s, transform 0.6s;
+  &.puff {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
 .iam {
   text-align: center;
 }
