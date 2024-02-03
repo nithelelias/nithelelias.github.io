@@ -94,7 +94,8 @@ export default function createChicken(_x, _y) {
         document.body.clientHeight * 0.4,
         document.body.clientHeight * 0.8
       ),
-    vel = { x: 0, y: 0 };
+    vel = { x: 0, y: 0 },
+    scaleX = 1;
   var lastTime = Date.now();
   var lastTimePutEgg = Date.now();
   var timeoutPutEgg = random(3000, 30000);
@@ -105,7 +106,10 @@ export default function createChicken(_x, _y) {
   hen.alt = "es una gallina";
   hen.title = "Ko.";
 
-  hen.style.filter = `hue-rotate(${random(0, chickens * 10)}deg)  drop-shadow(2px -2px .5px var(--color2))`;
+  hen.style.filter = `hue-rotate(${random(
+    0,
+    chickens * 10
+  )}deg)  drop-shadow(2px -2px .5px var(--color2))`;
   hen.onclick = () => {
     if (hen.src === "none") {
       return;
@@ -131,7 +135,7 @@ export default function createChicken(_x, _y) {
     }, 5000);
   };
   const move = () => {
-    hen.style.transform = `translate(${x}px,${y}px)`;
+    hen.style.transform = `translate(${x}px,${y}px) scaleX(${scaleX})`;
   };
   const limitMove = () => {
     if (x < 1) {
@@ -159,7 +163,11 @@ export default function createChicken(_x, _y) {
   const doMove = () => {
     let dirx = clamp(vel.x, -1, 1);
     let diry = clamp(vel.y, -1, 1);
-
+    if (dirx > 0) {
+      scaleX = -1;
+    } else {
+      scaleX = 1;
+    }
     x += dirx;
     y += diry;
     vel.x -= dirx;
