@@ -395,6 +395,31 @@ CUSTOMS
     display: none;
   }
 }
+
+#perfil {
+  overflow: hidden;
+}
+.stack {
+  position: relative;
+  width: 200px;
+
+  height: 270px;
+  & .stack-card {
+    position: absolute;
+    z-index: 2;
+    width: 200px;
+    height: 270px;
+    object-fit: cover;
+    cursor: move;
+    transition: left 0.6s,top 0.6s;
+    box-sizing: border-box;
+    &.draggin {
+      border: solid var(--color3);
+      transition: none;
+    }
+  }
+}
+
 /** DARK MODE OVERRIDE **/
 
 body.dark {

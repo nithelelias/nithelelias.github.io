@@ -1,5 +1,5 @@
 import createChicken from "./chicken.js";
-
+const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 class DarkMode {
   static active = false;
   static set(_value) {
@@ -112,7 +112,7 @@ function isElementInViewPort(element) {
   let halfSize = window.innerHeight / 2;
   return rect.top < halfSize && rect.bottom > halfSize;
 }
-function navMenu() { 
+function navMenu() {
   let runs = [];
   document.querySelectorAll("nav a").forEach((linkRel) => {
     let sectionId = linkRel.attributes.href.value.replace("/", "");
@@ -132,6 +132,106 @@ function navMenu() {
     }
   });
 }
+
+function stackCards() {
+  let cards = document.querySelectorAll(".stack-card");
+  let maxZindex = cards.length;
+  var maxAngle = 35;
+  const CardRender = (card, startIdx) => {
+    const thresHold = 100;
+    let pressed = true;
+    let from = {
+      x: 0,
+      y: 0,
+    };
+    let startPosition = {
+      x: card.offsetLeft + 0,
+      y: card.offsetTop + 0,
+    };
+    let limits = {
+      min: {
+        x: startPosition.y - thresHold * 2,
+        y: startPosition.y - thresHold * 2,
+      },
+      max: {
+        x: startPosition.x + thresHold * 2,
+        y: startPosition.y + thresHold * 2,
+      },
+    };
+
+    const getClientPosition = (evt) => {
+      if (evt.touches) {
+        return { x: evt.touches[0].clientX, y: evt.touches[0].clientY };
+      }
+      return {
+        x: evt.clientX,
+        y: evt.clientY,
+      };
+    };
+    // card.style.zIndex = startIdx;
+    const onmove = (evt) => {
+      evt.preventDefault();
+      // calculate the new cursor position:
+      let client = getClientPosition(evt);
+      let pos_x = from.x - client.x;
+      let pos_y = from.y - client.y;
+
+      from.x = client.x;
+      from.y = client.y;
+      // set the element's new position:
+      card.style.top =
+        clamp(card.offsetTop - pos_y, limits.min.y, limits.max.y) + "px";
+      card.style.left =
+        clamp(card.offsetLeft - pos_x, limits.min.x, limits.max.x) + "px";
+    };
+    const onrelease = () => {
+      card.removeEventListener("mousemove", onmove);
+      card.removeEventListener("mouseup", onrelease);
+      card.removeEventListener("touchmove", onmove);
+      card.removeEventListener("touchend", onrelease);
+      let distance = Math.max(Math.abs(card.offsetLeft - startPosition.x),Math.abs(card.offsetTop - startPosition.y));
+      if (distance > thresHold) {
+        card.parentElement.insertBefore(card, card.parentElement.firstChild);
+      }
+      card.classList.remove("draggin");
+      setTimeout(() => {
+        card.style.top = startPosition.y;
+        card.style.left = startPosition.x;
+      }, 100);
+    };
+    const onPress = (evt) => {
+      evt.preventDefault();
+      pressed = true;
+      let client = getClientPosition(evt);
+      card.classList.add("draggin");
+      from.x = client.x;
+      from.y = client.y;
+
+      if (window.innerWidth > 700) {
+        card.addEventListener("mousemove", onmove);
+        card.addEventListener("mouseup", onrelease);
+      } else {
+        card.addEventListener("touchmove", onmove);
+        card.addEventListener("touchend", onrelease);
+      }
+    };
+    card.addEventListener("mousedown", onPress, false);
+    card.addEventListener("touchstart", onPress, false);
+
+    const loop = () => {
+      let angle = clamp(
+        ((card.offsetLeft - startPosition.x) / (thresHold * 3)) * maxAngle,
+        -maxAngle,
+        maxAngle
+      );
+      card.style.transform = `rotate(${angle}deg)`;
+      requestAnimationFrame(loop);
+    };
+    loop();
+  };
+
+  cards.forEach(CardRender);
+}
 //// INIT
 initDarkMode();
 HeroWebLink();
@@ -140,3 +240,4 @@ NavMenuBtn();
 ScrollBinder();
 createChicken();
 navMenu();
+stackCards();
