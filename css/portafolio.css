@@ -186,7 +186,7 @@ CUSTOMS
   left: 0px;
   width: 20px;
   cursor: pointer;
-  transition: all 0.1s, transform 0.6s; 
+  transition: all 0.1s, transform 0.6s;
 }
 .message {
   position: absolute;
@@ -197,6 +197,7 @@ CUSTOMS
   border: thin solid #111;
   transition: all 1s;
   user-select: none;
+  color: #111;
   &.puff {
     opacity: 0;
     transform: scale(0) translate(30px, -100px);
