@@ -185,10 +185,10 @@ function stackCards() {
         clamp(card.offsetLeft - pos_x, limits.min.x, limits.max.x) + "px";
     };
     const onrelease = () => {
-      card.removeEventListener("mousemove", onmove);
-      card.removeEventListener("mouseup", onrelease);
-      card.removeEventListener("touchmove", onmove);
-      card.removeEventListener("touchend", onrelease);
+      document.removeEventListener("mousemove", onmove);
+      document.removeEventListener("mouseup", onrelease);
+      document.removeEventListener("touchmove", onmove);
+      document.removeEventListener("touchend", onrelease);
       let distance = Math.max(Math.abs(card.offsetLeft - startPosition.x),Math.abs(card.offsetTop - startPosition.y));
       if (distance > thresHold) {
         card.parentElement.insertBefore(card, card.parentElement.firstChild);
@@ -208,11 +208,11 @@ function stackCards() {
       from.y = client.y;
 
       if (window.innerWidth > 700) {
-        card.addEventListener("mousemove", onmove);
-        card.addEventListener("mouseup", onrelease);
+        document.addEventListener("mousemove", onmove);
+        document.addEventListener("mouseup", onrelease);
       } else {
-        card.addEventListener("touchmove", onmove);
-        card.addEventListener("touchend", onrelease);
+        document.addEventListener("touchmove", onmove);
+        document.addEventListener("touchend", onrelease);
       }
     };
     card.addEventListener("mousedown", onPress, false);
