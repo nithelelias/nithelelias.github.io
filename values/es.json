@@ -1,125 +1,116 @@
 {
-    "about": "Soy un apasionado Ingeniero de sistemas, enamorado de Javascript. Me gusta trabajar con proyectos emocionantes, la mayoria de los proyectos tienen que ver con herramientas GIS",
-    "skillsSectionTitle": "Habilidades",
-    "placeholderfilterskills": "Busca si lo sé",
-    "lifeExperienceTitle": "Experiencia",
-    "profileTitle": "Perfil",
-    "profileinfo": "Capacitado para asistir y participar en el análisis, diseño e implementación de sistemas de información de las organizaciones y la planeación y desarrollo de proyectos de sistemas de información y de tecnologías de informática. Capacidad de Liderar el desarrollo de empresa en el campo de la tecnología y gerencia de proyectos informáticos, Administrar Base de datos, supervisar el soporte técnico y mantenimiento a los sistemas informáticos.",
-    "letsfun": "A Divertirnos",
-    "explainwhygame": "Este es un pequeño juego que realice en pocos dias full JS con HTML5 sin Canvas",
-    "footerinfo": "Todo el codigo lo hice yo ayudandome de ideas en foros e internet.Las animaciones para el juego fueron usadas de la libreria <a href='https://animate.style/' target=_blank  >Animate.css</a>",
-    "SKILLS": {
-        "languages": [
-            "Javascript:100%",
-            "JAVA:100%",
-            "C#:90%",
-            "C++:70%",
-            "Python:70%",
-            "Angular:90%",
-            "Angular2:70%",
-            "React:60%",
-            "Preact:80%",
-            "Css:100%",
-            "SQL:100%",
-            "PHP:80%",
-            "ActionScript:100%",
-            "ASP:50%"
-        ],
-        "programs": [
-            "MYSQL:90%",
-            "POSTGRESS:70%",
-            "PLSQL:70%",
-            "VB:70%",
-            "GODOT:60%",
-            "Android:70%",
-            "NodeJs:90%",
-            ".NET:80%",
-            "Adobe Flas:90%",
-            "Adobe PhotoShop:60%",
-            "Microsoft Excel:100%",
-            "Microsoft Access:100%",
-            "Google Apps Script:80%"
-        ]
-    },
-    "LIFE_EXPERIENCE": [
-        {
-            "title": "Ludycom Lima",
-            "position": "Ingeniero Desarrollador",
-            "skills": [
-                "Desarrollo en productos móviles para Windows Mobile y Android para soluciones empresariales.",
-                "Desarrollo en aplicaciones java para aplicaciones comerciales.",
-                "Desarrollo en aplicaciones android para aplicaciones móviles.",
-                "Desarrollo en aplicaciones WEB usando AngularJS y Angular2",
-                "Desarrollo en aplicaciones WEB usando Bootstrap"
-            ],
-            "date": "Julio/2015- Actualmente laborando"
-        },
-        {
-            "title": "Ludycom",
-            "position": "Ingeniero Desarrollador y Soporte Gis",
-            "skills": [
-                " Soporte Sistemas Gis, Administrador Base Datos. Desarrollo en productos móviles para Windows Mobile y Android.Desarrollo de soluciones comerciales.",
-                "Administración de Base de datos  SQL Server.",
-                "Administración de Base de datos  Oracle.",
-                "Desarrollo en lenguaje C# .Net para desarrollo móvil y de escritorio.",
-                "Desarrollo en aplicaciones en Silverlight para soluciones en paginas web.",
-                "Desarrollo en aplicaciones VB .net para soluciones de escritorio.",
-                "Desarrollo en aplicaciones java para aplicaciones comerciales.",
-                "Desarrollo en aplicaciones android para aplicaciones móviles.",
-                "Desarrollo en aplicaciones WEB usando API Arcgis Javascript.",
-                "Desarrollo en funcionalidades usando API Arcgis Runtime.",
-                "Manejo de las herramientas de Arcgis para Desktop y Server (9.3 en adelante).",
-                "Manejo de las funcionalidades del ArcSDE.",
-                "Administrador de servidores Microsoft Windows server.",
-                "Programación en Phyton para uso en conjunto con argis server."
-            ],
-            "date": "Octubre/2012 – Julio/2015 "
-        },
-        {
-            "title": "Gijutsu designes",
-            "position": "Igeniero desarrollador",
-            "skills": [
-                "Desarrollador de páginas web.",
-                "Creación  y  administración de Base de datos en MYSQL.",
-                "Desarrollador de Páginas Web en Intranet para manejos de Gestión orientado a PHP.",
-                "Programador de Páginas Web con manejo de CSS y jQuery.",
-                "Programador Flash Actionscript cs2,cs3 "
-            ],
-            "date": "Septiembre /2011-Junio/2012"
-        },
-        {
-            "title": "Access America",
-            "position": "Practicante - Administrador de base de datos",
-            "skills": [
-                "Administrador de bases de datos.",
-                "Administración de bases de datos en MySQL.",
-                "Creación de reportes Excel.",
-                "Analista de Información de ventas.",
-                "Desarrollador de software de utilidades."
-            ],
-            "date": "Marzo /2011-Septiembre/2011"
-        },
-        {
-            "title": "Sistemas y Servicios Sislitoral",
-            "position": "Practicante - Técnico en mantenimiento de sistemas",
-            "skills": [
-                "Técnico en mantenimiento de computadores",
-                "Mantenimiento de software",
-                "soporte preventivo de máquinas de computo",
-                "Análisis de sistemas  operativos."
-            ],
-            "date": "Octubre/2009 –Mayo/2010"
-        },
-        {
-            "title": "Acoolsure Atlántico",
-            "position": "Practicante - Asistente de recursos Humanos",
-            "skills": [
-                "Creacion y administracion de Base datos en access",
-                "Creación y administración de bases de datos en Microsoft Access a través de formularios dinámicos.",
-                "Creación de reportes de la misma herramienta",
-                "Atención al usuario."
-            ],
-            "date": "Septiembre /2008 – febrero/2009 "
-        }
+  "about": "Soy un apasionado Ingeniero de sistemas, enamorado de Javascript. Me gusta trabajar con proyectos emocionantes, la mayoria de los proyectos tienen que ver con herramientas GIS",
+  "skillsSectionTitle": "Habilidades",
+  "placeholderfilterskills": "Busca si lo sé",
+  "lifeExperienceTitle": "Experiencia",
+  "profileTitle": "Perfil",
+  "profileinfo": "Capacitado para asistir y participar en el análisis, diseño e implementación de sistemas de información de las organizaciones y la planeación y desarrollo de proyectos de sistemas de información y de tecnologías de informática. Capacidad de Liderar el desarrollo de empresa en el campo de la tecnología y gerencia de proyectos informáticos, Administrar Base de datos, supervisar el soporte técnico y mantenimiento a los sistemas informáticos.",
+  "letsfun": "A Divertirnos",
+  "explainwhygame": "Este es un pequeño juego que realice en pocos dias full JS con HTML5 sin Canvas",
+  "footerinfo": "Todo el codigo lo hice yo ayudandome de ideas en foros e internet.Las animaciones para el juego fueron usadas de la libreria <a href='https://animate.style/' target=_blank  >Animate.css</a>",
+  "SKILLS": {
+    "languages": [
+      "Javascript:100%",
+      "JAVA:100%",
+      "C#:90%",
+      "Python:70%",
+      "Angular:90%",
+      "React:90%",
+      "Preact:90%",
+      "Css:100%",
+      "SQL:100%",
+      "PHP:80%"
+    ],
+    "programs": [
+      "MYSQL:90%",
+      "POSTGRESS:70%",
+      "PLSQL:70%",
+      "VB:70%",
+      "GODOT:60%",
+      "Android Studio:70%",
+      "Adobe PhotoShop:60%",
+      "Google Apps Script:80%"
     ]
+  },
+  "LIFE_EXPERIENCE": [
+    {
+      "title": "Ludycom Lima",
+      "position": "Ingeniero Desarrollador",
+      "skills": [
+        "Desarrollo en productos móviles para Windows Mobile y Android para soluciones empresariales.",
+        "Desarrollo en aplicaciones java para aplicaciones comerciales.",
+        "Desarrollo en aplicaciones android para aplicaciones móviles.",
+        "Desarrollo en aplicaciones WEB usando AngularJS y Angular2",
+        "Desarrollo en aplicaciones WEB usando Bootstrap"
+      ],
+      "date": "Julio/2015- Actualmente laborando"
+    },
+    {
+      "title": "Ludycom",
+      "position": "Ingeniero Desarrollador y Soporte Gis",
+      "skills": [
+        " Soporte Sistemas Gis, Administrador Base Datos. Desarrollo en productos móviles para Windows Mobile y Android.Desarrollo de soluciones comerciales.",
+        "Administración de Base de datos  SQL Server.",
+        "Administración de Base de datos  Oracle.",
+        "Desarrollo en lenguaje C# .Net para desarrollo móvil y de escritorio.",
+        "Desarrollo en aplicaciones en Silverlight para soluciones en paginas web.",
+        "Desarrollo en aplicaciones VB .net para soluciones de escritorio.",
+        "Desarrollo en aplicaciones java para aplicaciones comerciales.",
+        "Desarrollo en aplicaciones android para aplicaciones móviles.",
+        "Desarrollo en aplicaciones WEB usando API Arcgis Javascript.",
+        "Desarrollo en funcionalidades usando API Arcgis Runtime.",
+        "Manejo de las herramientas de Arcgis para Desktop y Server (9.3 en adelante).",
+        "Manejo de las funcionalidades del ArcSDE.",
+        "Administrador de servidores Microsoft Windows server.",
+        "Programación en Phyton para uso en conjunto con argis server."
+      ],
+      "date": "Octubre/2012 – Julio/2015 "
+    },
+    {
+      "title": "Gijutsu designes",
+      "position": "Igeniero desarrollador",
+      "skills": [
+        "Desarrollador de páginas web.",
+        "Creación  y  administración de Base de datos en MYSQL.",
+        "Desarrollador de Páginas Web en Intranet para manejos de Gestión orientado a PHP.",
+        "Programador de Páginas Web con manejo de CSS y jQuery.",
+        "Programador Flash Actionscript cs2,cs3 "
+      ],
+      "date": "Septiembre /2011-Junio/2012"
+    },
+    {
+      "title": "Access America",
+      "position": "Practicante - Administrador de base de datos",
+      "skills": [
+        "Administrador de bases de datos.",
+        "Administración de bases de datos en MySQL.",
+        "Creación de reportes Excel.",
+        "Analista de Información de ventas.",
+        "Desarrollador de software de utilidades."
+      ],
+      "date": "Marzo /2011-Septiembre/2011"
+    },
+    {
+      "title": "Sistemas y Servicios Sislitoral",
+      "position": "Practicante - Técnico en mantenimiento de sistemas",
+      "skills": [
+        "Técnico en mantenimiento de computadores",
+        "Mantenimiento de software",
+        "soporte preventivo de máquinas de computo",
+        "Análisis de sistemas  operativos."
+      ],
+      "date": "Octubre/2009 –Mayo/2010"
+    },
+    {
+      "title": "Acoolsure Atlántico",
+      "position": "Practicante - Asistente de recursos Humanos",
+      "skills": [
+        "Creacion y administracion de Base datos en access",
+        "Creación y administración de bases de datos en Microsoft Access a través de formularios dinámicos.",
+        "Creación de reportes de la misma herramienta",
+        "Atención al usuario."
+      ],
+      "date": "Septiembre /2008 – febrero/2009 "
+    }
+  ]
 }

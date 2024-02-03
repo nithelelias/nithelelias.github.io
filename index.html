@@ -1,154 +1,209 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="content-language" content="es">
-    <title>Nithel Elias webApp</title>
-    <link rel="icon" href="images/favico.png">
-    <style>
-        @font-face {
-            font-family: customfont;
-            /*src: url('css/fonts/hack/Hack-Regular.ttf');*/
-            src: url('css/fonts/sometype-mono/SometypeMono-Regular.ttf');
-
-        }
-
-        body {
-            font-family: customfont;
-        }
-
-        .center-text {
-            text-align: center;
-        }
-
-        .center {
-            margin: 0 auto;
-        }
-
-        .full-width {
-            width: 100%;
-        }
-
-        .full-height {
-            height: 100%;
-        }
-
-        .top {
-            position: absolute;
-            top: 0px;
-        }
-
-        .left {
-            position: absolute;
-            left: 0px;
-        }
-
-        .right {
-            position: absolute;
-            right: 0px;
-            left: auto;
-        }
-
-        .bottom {
-            position: absolute;
-            bottom: 0px;
-            top: auto;
-        }
-
-        .circle {
-            border-radius: 50%;
-        }
-
-        .no-select {
-            user-select: none;
-        }
-
-        .shadow {
-            box-shadow: 1px 2px 2px 1px #858282;
-        }
-
-        .highlighted {
-            background-color: yellow;
-        }
-
-        .skillchip {
-            float: left;
-            position: relative;
-            width: auto;
-            margin: 5px;
-            border: solid thin;
-            border-radius: 6px;
-            padding: 10px;
-            overflow: hidden;
-            user-select: none;
-        }
-
-        .wrapper-timeline-section {
-            max-width: 80%;
-            min-width: 300px;
-            position: relative;
-        }
-
-        .wrapper-timeline-section .card {
-            margin-left: 20px;
-            width: 90%;
-        }
-
-        .card {
-            border-radius: 5px;
-            border: thin solid;
-            padding: 10px 20px;
-            margin: 10px;
-            background: white;
-            display: inline-block;
-        }
-
-        .no-margin {
-            margin: 0px;
-        }
-
-        .experience-skill-item::before {
-            content: "\2022";
-            /* Add content: \2022 is the CSS Code/unicode for a bullet */
-            color: #fa7401;
-            /* Change the color */
-            font-weight: bold;
-            /* If you want it to be bold */
-            display: inline-block;
-            /* Needed to add space between the bullet and the text */
-            width: 1em;
-            /* Also needed for space (tweak if needed) */
-            margin-left: -1em;
-            /* Also needed for space (tweak if needed) */
-        }
-    </style>
-</head>
-
-<body>
-
-
-    <header class="full-width center-text" style="margin-top:20px">
-        <div class="circle  shadow center " style="border:thin solid #111;width:200px;height:200px;" component="Pic">
-        </div>
-            <h1 style="margin:0px;">Nithel R. Elias</h1>
-        <p component="About"> </p>
-
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-language" content="es" />
+    <title>Soy, Nithel R. Elias</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="images/favico.png" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="css/profile.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button class="mobile-menu-button"></button>
+        <a aria-label="inicio" href="/#inicio">Inicio</a>
+        <a aria-label="inicio" href="/#experiencia">Experiencia</a>
+        <a aria-label="inicio" href="/#skills">Skills</a>
+        <a aria-label="inicio" href="/#perfil">Perfil</a>
+        <dark-mode-switch />
+      </nav>
     </header>
+
     <main>
-        <div component="Skills"> </div>
-        <br />
-        <div component="Profile"> </div>
-        <br />
-        <div component="LifeExperience"> </div>
-        <hr />
-        <div component="Game"> </div>
+      <section id="inicio">
+        <div class="iam">
+          <div class="over-pic" title="Soy yo">
+            <img
+              src="images/foto.webp"
+              class="pic oval"
+              alt="Foto de Nithel Elias"
+              title="Soy yo"
+              width="200px"
+            />
+          </div>
+          <h1>Hola, Soy Nithel Elias</h1>
+        </div>
+        <p class="about end-cursor">
+          Tengo más de 10 años de experiencia siendo
+          <strong>Ingeniero de Software</strong> trabajando en soluciones
+          tecnológicas de todo índole, pero mi mayor amor es
+          <b class="--text-red">Javascript ❤️</b> y la creacion de juegos web.
+          Aunque he trabajado como desarrollador full-stack actualmente me estoy
+          especializando en ser <strong>Desarrollador Frontend</strong>.
+        </p>
+        <div class="flex">
+          <HeroWebLink
+            image="images/icons/linkedin-icon.svg"
+            href="https://linkedin.com/in/nithel-elias"
+          >
+            LinkedIn
+          </HeroWebLink>
+          <HeroWebLink
+            image="images/icons/itchio-icon.png"
+            href="https://nithelelias.itch.io/"
+          >
+            Itch.io
+          </HeroWebLink>
+          <HeroWebLink
+            image="images/icons/gmail-icon.svg"
+            href="mailto:nithelelias@gmail.com"
+          >
+            Contáctame
+          </HeroWebLink>
+        </div>
+      </section>
+      <section id="experiencia">
+        <h2>Experiencia</h2>
+        <ol class="experience-timeline">
+          <li class="flex">
+            <div class="side">
+              <h3>Pragma Peru</h3>
+              <h4>Desarrollador Front End</h4>
+              <p>Actualmente</p>
+            </div>
+            <div class="side">
+              <p class="end-cursor">
+                <strong> Líder Frontend </strong> en desarrollo de plataformas y
+                componentes webs, Creación de componentes en React con gastsby y
+                Juegos Online Usando Phaser JS
+              </p>
+              <a
+                href="https://phaser.io/"
+                rel="noopener noreferrer"
+                role="link"
+                target="_blank"
+                >¿Que es PhaserJs?</a
+              >
+            </div>
+          </li>
+          <li class="flex">
+            <div class="side">
+              <h3>Ludycom Lima</h3>
+              <h4>Desarrollador Full-stack</h4>
+              <p>Junio 2022</p>
+            </div>
+            <div class="side">
+              <p>
+                <strong>Desarrollador Full-Stack</strong>, para diferentes
+                productos y dispositivos, desde administración de base de datos,
+                servidores hasta desarrollo y evolutivo de aplicaciones móviles
+                para Windows Mobile y Android, también desarrollo y soporte de
+                programas in-house en de diferentes lenguajes que usan librerías
+                GIS.
+              </p>
+              <a
+                href="https://www.esri.es/es-es/descubre-los-gis/qu-es-sig/que-es-sig"
+                rel="noopener noreferrer"
+                role="link"
+                target="_blank"
+                >¿Que es GIS?</a
+              >
+            </div>
+          </li>
+        </ol>
+      </section>
+      <section id="skills">
+        <h2>Habilidades</h2>
+        <p>
+          Cuando tenga algunos proyectos personales los muestro. Por lo pronto
+          aqui estan mis habilidades
+        </p>
+        <div class="flex">
+          <div class="skill-pill" data-level="5">Javascript</div>
+          <div class="skill-pill" data-level="5">HTML & CSS</div>
+          <div class="skill-pill" data-level="5">PhaserJs</div>
+          <div class="skill-pill" data-level="4">React</div>
+          <div class="skill-pill" data-level="4">Angular</div>
+          <div class="skill-pill" data-level="3">NodeJs</div>
+          <div class="skill-pill" data-level="3">Git</div>
+          <div class="skill-pill" data-level="3">Java</div>
+          <div class="skill-pill" data-level="3">C#</div>
+          <div class="skill-pill" data-level="3">PHP</div>
+          <div class="skill-pill" data-level="3">SQL</div>
+          <div class="skill-pill" data-level="3">Python</div>
+          <div class="skill-pill" data-level="3">Godot</div>
+          <div class="skill-pill" data-level="2">Unity</div>
+        </div>
+      </section>
+
+      <section id="perfil">
+        <h2>Perfil</h2>
+        <div class="flex">
+          <div class="perfil-side-left">
+            <p>
+              Me llamo Nithel Rene Elias Alvarez, empecé a programar desde mis
+              12 años cuando mi hermana estudiaba su ingeniería de sistemas.
+              <strong
+                >Actualmente lidero el area Frontend donde trabajo.</strong
+              >
+            </p>
+            <p class="end-cursor">
+              Siempre <strong>soy partícipe de todos los procesos</strong> a los
+              cuales me puedo involucrar, sean de programación, diseño o
+              estrategias diversas.
+            </p>
+            <p>
+              Siempre estoy en busca de nuevos retos, lo que me llevó a aprender
+              sobre <strong>diseño y creación de videojuegos.</strong> Puedes
+              mirar algunos de mis trabajos
+              <a
+                href="https://nithelelias.itch.io/"
+                rel="noopener noreferrer"
+                role="link"
+                target="_blank"
+                >aqui en Itch.io</a
+              >
+            </p>
+          </div>
+
+          <div class="perfil-side-right">
+            <figure>
+              <img
+                src="images/foto2.webp"
+                class="roundrec"
+                alt="Foto lateral de Nithel Elias"
+                title="otra foto mia aun soy yo"
+                width="200px"
+              />
+              <figcaption class="flex --column">
+                Me gusta Programar!
+                <a
+                  rel="noopener noreferrer"
+                  role="link"
+                  target="_blank"
+                  href="mailto:nithelelias@gmail.com"
+                >
+                  Contacto
+                </a>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <div component="Footer" style="position: relative;bottom:-10px;margin-top:50px;"></div>
-
-    <script type="module" src="1.js"></script>
-</body>
-
+    <footer
+      component="Footer"
+      style="position: relative; bottom: -10px; margin-top: 50px"
+    ></footer>
+    <script type="module" src="portafolio.js"></script>
+  </body>
 </html>
