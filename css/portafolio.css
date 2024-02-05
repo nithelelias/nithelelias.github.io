@@ -15,7 +15,7 @@
 :root {
   --color1: #ffffff;
   --color2: #0a0f16;
-  --color3: #1f7a8c;
+  --color3: #196676;
   --color4: #ff5e5b;
   --color5: #ec7fff;
   --color-nav-shadow: #c1c1c1db;
@@ -356,6 +356,9 @@ CUSTOMS
     transition: top 0.3s;
     top: calc(var(--scroll) * 300px);
   }
+}
+#skills ul{
+  list-style: none;
 }
 .skill-pill {
   background-color: black;
