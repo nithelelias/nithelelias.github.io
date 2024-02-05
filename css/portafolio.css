@@ -1,17 +1,4 @@
-@font-face {
-  font-family: custom-regular;
-  src: url("./fonts/hack/Hack-Regular.ttf"), Roboto;
-}
 
-@font-face {
-  font-family: custom-bold;
-  src: url("./fonts/hack/Hack-Bold.ttf");
-}
-
-@font-face {
-  font-family: custom-bold-cursive;
-  src: url("./fonts/hack/Hack-BoldOblique.ttf");
-}
 :root {
   --color1: #ffffff;
   --color2: #0a0f16;
@@ -329,10 +316,11 @@ CUSTOMS
   content: "_";
   width: 0.5rem;
   height: 20px;
-  margin-left: -0.5rem;
+  margin-left: -1.1rem;
   background: var(--color5);
   display: inline-block;
-  animation: cursor-blink 1.5s steps(2) infinite;
+  animation: cursor-blink 1.5s steps(2) infinite ;
+  
 }
 
 .bind-scroll-anim {

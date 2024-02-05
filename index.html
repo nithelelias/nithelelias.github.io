@@ -5,20 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="content-language" content="es" />
-    <title>Soy, Nithel R. Elias</title>
+    <meta name="author" content="nithel elias" />
+    <meta name="title" content="Soy, Nithel Elias" />
+    <meta
+      name="Description"
+      content="Portafolio de Nithel Elias, con mas de 10 años de experiencia siendo Ingeniero de Software trabajando en soluciones tecnológicas de todo índole"
+    />
+    <title>Soy, Nithel Elias</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="images/favico.ico" />
     <link
       rel="stylesheet"
       type="text/css"
-      media="screen"
+      href="css/fonts.css"
+      media="print"
+      onload="this.media='all'; this.onload = null"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
       href="css/portafolio.css"
+      onload="this.media='all'; this.onload = null"
     />
   </head>
   <body class="layer">
     <header>
       <nav>
-        <button class="mobile-menu-button"></button>
+        <button class="mobile-menu-button" name="menu-button" aria-label="button to open menu"></button>
         <a aria-label="inicio" href="/#inicio">Inicio</a>
         <a aria-label="inicio" href="/#experiencia">Experiencia</a>
         <a aria-label="inicio" href="/#skills">Skills</a>
@@ -229,12 +242,12 @@
 
     <footer>
       <p>
-      <a
-        href="https://www.flaticon.com/free-icons/chicken"
-        title="chicken icons"
-        >Chicken icon and others created by Freepik - Flaticon</a
-      >
-    </p>
+        <a
+          href="https://www.flaticon.com/free-icons/chicken"
+          title="chicken icons"
+          >Chicken icon and others created by Freepik - Flaticon</a
+        >
+      </p>
     </footer>
     <script type="module" src="portafolio.js"></script>
   </body>

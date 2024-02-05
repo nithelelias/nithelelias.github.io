@@ -49,6 +49,7 @@ function HeroWebLink() {
           src="${element.attributes.image.value}"
           alt="${element.innerHTML} - icon - Nithel Elias "
           width="24"
+          height="auto"          
         />
         ${element.innerHTML}
       </a>`;

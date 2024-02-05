@@ -1,0 +1,14 @@
+@font-face {
+  font-family: custom-regular;
+  src: url("./fonts/hack/Hack-Regular.ttf"), Roboto;
+}
+
+@font-face {
+  font-family: custom-bold;
+  src: url("./fonts/hack/Hack-Bold.ttf");
+}
+
+@font-face {
+  font-family: custom-bold-cursive;
+  src: url("./fonts/hack/Hack-BoldOblique.ttf");
+}
