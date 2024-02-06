@@ -19,6 +19,7 @@
       type="text/css"
       href="css/fonts.css"
       media="print"
+      async
       onload="this.media='all'; this.onload = null"
     />
     <link
@@ -31,7 +32,11 @@
   <body class="layer">
     <header>
       <nav>
-        <button class="mobile-menu-button" name="menu-button" aria-label="button to open menu"></button>
+        <button
+          class="mobile-menu-button"
+          name="menu-button"
+          aria-label="button to open menu"
+        ></button>
         <a aria-label="inicio" href="/#inicio">Inicio</a>
         <a aria-label="inicio" href="/#experiencia">Experiencia</a>
         <a aria-label="inicio" href="/#skills">Skills</a>
@@ -60,10 +65,12 @@
         <p class="about end-cursor">
           Tengo más de 10 años de experiencia siendo
           <strong>Ingeniero de Software</strong> trabajando en soluciones
-          tecnológicas de todo índole, pero mi mayor amor es
-          <b class="--text-red">Javascript ❤️</b> y la creación de juegos web.
-          Aunque he trabajado como desarrollador full-stack, actualmente me
-          estoy especializando en ser <strong>Desarrollador Frontend</strong>.
+          tecnológicas de todo índole, amo
+          <strong
+            >Javascript ❤️ y la creación de juegos web
+            <a class="space-trigger" role="button">👾</a>.</strong
+          >
+          Actualmente especializando en <strong>Desarrollo Frontend</strong>.
         </p>
         <div class="flex">
           <HeroWebLink
@@ -209,18 +216,24 @@
                   class="roundrec stack-card"
                   alt="Foto de epoca de Nithel Elias"
                   title="otra foto mia aun soy yo"
+                  width="200px"
+                  height="270px"
                 />
                 <img
                   src="images/foto.webp"
                   class="roundrec stack-card"
                   alt="Foto en onda de Nithel Elias"
                   title="Yo en onda "
+                  width="200px"
+                  height="270px"
                 />
                 <img
                   src="images/foto2.webp"
                   class="roundrec stack-card"
                   alt="Foto lateral de Nithel Elias"
                   title="Foto lateral mia toda interesantonga"
+                  width="200px"
+                  height="270px"
                 />
               </div>
               <figcaption class="flex --column">
@@ -250,5 +263,6 @@
       </p>
     </footer>
     <script type="module" src="portafolio.js"></script>
+    <script async type="module" src="chicken.js"></script>
   </body>
 </html>

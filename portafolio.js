@@ -1,4 +1,3 @@
-import createChicken from "./chicken.js";
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 class DarkMode {
   static active = false;
@@ -190,7 +189,10 @@ function stackCards() {
       document.removeEventListener("mouseup", onrelease);
       document.removeEventListener("touchmove", onmove);
       document.removeEventListener("touchend", onrelease);
-      let distance = Math.max(Math.abs(card.offsetLeft - startPosition.x),Math.abs(card.offsetTop - startPosition.y));
+      let distance = Math.max(
+        Math.abs(card.offsetLeft - startPosition.x),
+        Math.abs(card.offsetTop - startPosition.y)
+      );
       if (distance > thresHold) {
         card.parentElement.insertBefore(card, card.parentElement.firstChild);
       }
@@ -233,12 +235,71 @@ function stackCards() {
 
   cards.forEach(CardRender);
 }
+function spaceInvaders() {
+  let count = 0;
+  let container = null;
+  const killTheChickens = () => {
+    document.querySelectorAll(".chicken").forEach((_hen) => {
+      _hen.kill();
+    });
+    document.querySelectorAll(".egg").forEach((_egg) => {
+      _egg.kill();
+    });
+  };
+  const fadeInContainer = () => {
+    container = document.createElement("div");
+    container.classList.add("game-container");
+    document.body.appendChild(container);
+    document.body.style.overflow = "hidden";
+    setTimeout(() => {
+      container.style.opacity = 1;
+    }, 300);
+    return new Promise((resolve) => setTimeout(resolve, 1100));
+  };
+  const start = () => {
+    if (window.gameStarted) {
+      fadeInContainer().then(() => {
+        window.playGame();
+      });
+      return;
+    }
+    window.gameStarted = true;
+    window.endGame = () => {
+      document.body.style.overflow = "inherit";
+      count = 0;
+      container.remove();
+    };
+    killTheChickens();
+    fadeInContainer().then(() => {
+      var s = document.createElement("script");
+      s.src = "space.js";
+      document.body.appendChild(s);
+    });
+
+    //
+  };
+  let trigger = document.querySelector(".space-trigger");
+  trigger.onclick = (e) => {
+    e.preventDefault();
+    if (count > 3) {
+      return false;
+    }
+    count++;
+
+    console.log(count);
+    if (count > 3) {
+      start();
+    }
+    return false
+  };
+}
 //// INIT
 initDarkMode();
 HeroWebLink();
 DarkModeSwitch();
 NavMenuBtn();
 ScrollBinder();
-createChicken();
+
 navMenu();
 stackCards();
+spaceInvaders();

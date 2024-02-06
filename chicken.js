@@ -10,7 +10,8 @@ const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 function addEggAt(x, y) {
   const container = document.body;
   const div = document.createElement("div");
-
+  var active = true;
+  div.classList.add("egg");
   div.style.position = "absolute";
   div.style.width = ".5rem";
   div.style.height = ".8rem";
@@ -21,8 +22,11 @@ function addEggAt(x, y) {
   div.style.top = y + "px";
   div.style.cursor = "pointer";
   div.title = "is an egg";
+  div.kill = () => {
+    active = false;
+    div.remove();
+  };
   container.appendChild(div);
-  var active = true;
 
   var lastTime = Date.now(),
     timeStart = Date.now();
@@ -81,7 +85,7 @@ function putMessage(x, y, message) {
   }, 600);
 }
 
-export default function createChicken(_x, _y) {
+function createChicken(_x, _y) {
   chickens++;
   const maxPath = random(20, 100);
   var active = true;
@@ -124,16 +128,17 @@ export default function createChicken(_x, _y) {
       loop();
     }, 1200);
   };
-  document.body.appendChild(hen);
-  const kill = () => {
+  hen.kill = () => {
     hen.src = "none";
     hen.alt = "killed";
     hen.style.width = "4rem";
+    active = false;
     setTimeout(() => {
       hen.remove();
       chickens--;
     }, 5000);
   };
+  document.body.appendChild(hen);
   const move = () => {
     hen.style.transform = `translate(${x}px,${y}px) scaleX(${scaleX})`;
   };
@@ -206,3 +211,5 @@ export default function createChicken(_x, _y) {
   };
   loop();
 }
+
+createChicken();
