@@ -286,11 +286,14 @@ function spaceInvaders() {
     }
     count++;
 
-    console.log(count);
+    console.log(
+      `%c ${count} ${count === 4 ? "🛸👾🤖" : ""}`,
+      "font-size:" + 12 * count + "px;color:blue;"
+    );
     if (count > 3) {
       start();
     }
-    return false
+    return false;
   };
 }
 //// INIT
