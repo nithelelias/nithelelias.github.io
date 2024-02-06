@@ -264,6 +264,21 @@ function Hero(x, y) {
     }
     STORE.lifes -= 1;
     invinsible = true;
+    let div = createDiv({
+      style: {
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        "z-index": 100,
+        background: "red",
+        opacity:0.8
+      },
+    });
+    setTimeout(() => {
+      div.remove();
+    }, 60);
     await hitAnimation(entity.elementNode);
     invinsible = false;
   };
