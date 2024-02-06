@@ -273,7 +273,7 @@ function Hero(x, y) {
         height: "100%",
         "z-index": 100,
         background: "red",
-        opacity:0.8
+        opacity: 0.8,
       },
     });
     setTimeout(() => {
@@ -516,6 +516,52 @@ function updateRemaining() {
     }
   }
 }
+
+function createIntro() {
+  let div = createDiv({
+    style: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      zIndex: 100,
+      color: "white",
+      display: "flex",
+      "flex-direction": "column",
+      "font-size": "1.5rem",
+      "justify-content": "center",
+      "align-items": "center",
+      "text-align": "center",
+      transition: "all 1s",
+    },
+    innerHTML: `    
+    <h2>Controles ⌨️</h2>
+    <p>Mueve usando el teclado:<br/> <b>flecha izquierda ⬅️</b> y <b> flecha derecha ➡️</b> </p>
+    <p>Dispara con la barra espaciadora</p>
+    <h3 id="countdown">3</h3>
+    `,
+  });
+
+  const end = () => {
+    div.style.opacity = 0;
+    setTimeout(() => {
+      div.remove();
+      Loop.start();
+    }, 1500);
+  };
+  const countdown = document.getElementById("countdown");
+  let count = 3;
+  let interval = setInterval(() => {
+    if (count < 1) {
+      clearInterval(interval)
+      end();
+      return
+    }
+    count--;
+    countdown.innerHTML = count;
+  }, 1000);
+}
 function lose() {
   Loop.end();
   let div = createDiv({
@@ -626,8 +672,9 @@ function create() {
   createAliens();
   createHero();
   createSpaceShip();
+
   createUI();
-  Loop.start();
+  createIntro();
   Loop.add(() => {
     // validate if ther eis aliens alive
     updateRemaining();
