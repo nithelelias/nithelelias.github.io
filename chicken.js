@@ -7,7 +7,7 @@ const random = (min, max) => {
 };
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
-function addEggAt(x, y) {
+function addEggAt(x, y, bornOnClick = false) {
   const container = document.body;
   const div = document.createElement("div");
   var active = true;
@@ -54,16 +54,25 @@ function addEggAt(x, y) {
     div.remove();
     active = false;
   };
-  const loop = () => {
-    if (!active) {
-      return;
+  if(bornOnClick){
+    const onClick=() => {
+      born();
+      div.removeEventListener("click", onClick);
     }
-    shake();
-    born();
+    div.addEventListener("click", onClick);
+  }
+  if (!bornOnClick) {
+    const loop = () => {
+      if (!active) {
+        return;
+      }
+      shake();
+      born();
 
-    requestAnimationFrame(loop);
-  };
-  loop();
+      requestAnimationFrame(loop);
+    };
+    loop();
+  }
 }
 function putMessage(x, y, message) {
   const container = document.body;
@@ -212,4 +221,16 @@ function createChicken(_x, _y) {
   loop();
 }
 
-createChicken();
+function createRandomEgg() {
+  const x = random(
+    document.body.clientWidth * 0.4,
+    document.body.clientWidth * 0.8
+  );
+  const y = random(
+    document.body.clientHeight * 0.4,
+    document.body.clientHeight * 0.8
+  );
+  addEggAt(x, y,true);
+}
+
+createRandomEgg();

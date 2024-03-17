@@ -5,7 +5,7 @@
   --color4: #ff5e5b;
   --color5: #ec7fff;
   --color-nav-shadow: #c1c1c1db;
-  --scroll: 0;
+  --scroll: 0; 
 }
 ::-moz-selection {
   /* Code for Firefox */
@@ -15,8 +15,32 @@
 ::selection {
   background: var(--color5);
 }
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  transition: all 0.3s;
+}
+::-webkit-scrollbar:hover {
+  width: 16px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #c7c7c7;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color3);
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color4);
+}
 html {
   scroll-behavior: smooth;
+  
 }
 body {
   margin: 0px;
@@ -428,6 +452,16 @@ CUSTOMS
   transition: all 1s;
   user-select: none;
   backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  
+  #space-game{
+    width: 400px;
+    max-width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
 }
 /** DARK MODE OVERRIDE **/
 
@@ -446,7 +480,35 @@ body.dark .hero-web-link {
 body.dark .dark-mode-switch::after {
   background-image: url("../images/icons/icon-dark.png");
 }
+.hor-scroller {
+  overflow: hidden;
+  width: 100%;
+  mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+  ul {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    animation: scroll-hor linear 20s infinite;
+    animation-direction: alternate;
+  }
+}
+#skill-list .hor-scroller:last-child ul {
+  animation-direction: alternate-reverse;
+}
+#games {
+  position: relative;
 
+
+  .container {
+    width: calc(100vw - 20px);
+    min-height: 400px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: #c7c7c7;
+    box-shadow: 0px 0px 0px 10px #c7c7c7;
+  }
+}
 /**
 ANIMATIONS
 **/
@@ -487,5 +549,11 @@ ANIMATIONS
   }
   100% {
     border-image-source: linear-gradient(to left, var(--color5), var(--color3));
+  }
+}
+
+@keyframes scroll-hor {
+  to {
+    transform: translate(calc(-100% + 3rem));
   }
 }

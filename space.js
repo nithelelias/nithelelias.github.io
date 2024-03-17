@@ -1,6 +1,11 @@
+const maxWidth=400
 const POINT = 10;
 const emojis = `🛸👾🤖⚪🔴🟡⭐🏵️💥❤️`;
-var container = null;
+const sounds = {
+  pop: new Audio("sounds/pop.mp3"),
+  lazer: new Audio("sounds/lazer.mp3"),
+};
+let container = null;
 const center = {
   x: 0,
   y: 0,
@@ -12,14 +17,17 @@ const STORE = {
   points: 0,
 };
 const Loop = (function () {
-  var active = false;
-  var loopList = [];
+  let active = false;
+  let loopList = [];
+  const onEndCallbacks = [];
+
   const start = () => {
     active = true;
   };
   const end = () => {
     active = false;
     loopList = [];
+    onEndCallbacks.forEach((callback) => callback());
   };
   const add = (callback) => {
     const hold = {
@@ -48,11 +56,15 @@ const Loop = (function () {
     onLoop();
     requestAnimationFrame(loop);
   };
+  const onEnd = (callback) => {
+    onEndCallbacks.push(callback);
+  };
   loop();
   return {
     start,
     end,
     add,
+    onEnd,
   };
 })();
 
@@ -245,6 +257,7 @@ function Hero(x, y) {
     className: "hero",
   });
   this.move = entity.move;
+  this.setPosition = entity.setPosition;
   let invinsible = false;
   this.position = () => {
     return {
@@ -266,7 +279,7 @@ function Hero(x, y) {
     invinsible = true;
     let div = createDiv({
       style: {
-        position: "fixed",
+        position: "absolute",
         top: 0,
         left: 0,
         width: "100%",
@@ -314,6 +327,8 @@ function Shot(x, y, speedDir = [0, -1], targets = [], bullet = `🔴`) {
     for (let i in targets) {
       if (hitTest(targets[i].getBounds(), entity.getBounds())) {
         targets[i].hit();
+        sounds.pop.currentTime = 0;
+        sounds.pop.play();
         hitted = true;
         entity.elementNode.innerText = `💥`;
       }
@@ -321,6 +336,7 @@ function Shot(x, y, speedDir = [0, -1], targets = [], bullet = `🔴`) {
 
     return hitted;
   };
+
   unbindLoop = Loop.add(() => {
     entity.move(speedDir);
     if (testHitToTarget()) {
@@ -343,7 +359,7 @@ function createAliens() {
   const totalY = parseInt(totals / totalX);
   const startX = center.x - (totalX / 2) * gap;
   const startY = 30;
-  const max_distance = center.x * 0.5 - gap;
+  const max_distance = center.x * 0.5 - 3;
   for (let i = 0; i < totalX; i++) {
     for (let y = 0; y < totalY; y++) {
       let alien = new Alien(startX + i * gap, startY + y * gap, max_distance);
@@ -351,13 +367,45 @@ function createAliens() {
     }
   }
 }
+function cursorControls({ onPointerMove, onPointerDown, onPointerUp }) {
+  const offsetLeft=container.offsetLeft
+  const pointermove = (event) => {
+    
+    if (event.touches) {
+      onPointerMove(event.touches[0].clientX-offsetLeft);
+    } else {
+      onPointerMove(event.clientX-offsetLeft);
+    }
+  };
+  const pointerdown = () => {
+    onPointerDown();
+  };
+  const pointerup = () => {
+    onPointerUp();
+  };
+  container.addEventListener("mousemove", pointermove);
+  container.addEventListener("touchmove", pointermove);
+  container.addEventListener("mousedown", pointerdown);
+  container.addEventListener("mouseup", pointerup);
+  container.addEventListener("touchstart", pointerdown);
+  container.addEventListener("touchend", pointerup);
+
+  return () => {
+    container.removeEventListener("mousemove", pointermove);
+    container.removeEventListener("touchmove", pointermove);
+    container.removeEventListener("mousedown", pointerdown);
+    container.removeEventListener("mouseup", pointerup);
+    container.removeEventListener("touchstart", pointerdown);
+    container.removeEventListener("touchend", pointerup);
+  };
+}
 function createHero() {
-  let hero = new Hero(center.x, center.y * 1.8);
-  let heroSpeed = 4;
+  const hero = new Hero(center.x, center.y * 1.8);
+  const heroSpeed = 4;
   let velocityX = 0;
   let shotActive = true;
   let delayShot = 1000;
-  let keyCursor = {
+  const keyCursor = {
     left: false,
     right: false,
     space: false,
@@ -374,6 +422,7 @@ function createHero() {
       keyCursor.space = is_down;
     },
   });
+
   const doMoveByUser = () => {
     velocityX *= 0.9;
 
@@ -395,6 +444,8 @@ function createHero() {
     }
     shotActive = false;
     let pos = hero.position();
+    sounds.lazer.currentTime = 0;
+    sounds.lazer.play();
     Shot(
       pos.x + parseInt(hero.size() / 2) - 6,
       pos.y,
@@ -408,8 +459,25 @@ function createHero() {
   };
   Loop.add(() => {
     doShot();
+
     doMoveByUser();
   });
+
+  const unbindCursor = cursorControls({
+    onPointerMove: (x) => {
+      velocityX=0
+      hero.setPosition(x, hero.position().y);
+    },
+    onPointerDown: () => {
+      keyCursor.space = true;
+    },
+    onPointerUp: () => {
+      keyCursor.space = false;
+    },
+  });
+  return () => {
+    unbindCursor();
+  };
 }
 function createSpaceShip() {
   let startTime = Date.now();
@@ -430,7 +498,7 @@ function createSpaceShip() {
         innerHTML: `🛸`,
         className: "spaceship",
         style: {
-          "z-index": -1,
+          "z-index": 1,
         },
       });
       let alive = true;
@@ -489,8 +557,8 @@ function createUI() {
     id: "ui",
     style: {
       left: "20px",
-      bottom: "8px",
-      position: "fixed",
+      top: "8px",
+      position: "absolute",
       color: "white",
       "font-size": "16px",
     },
@@ -520,7 +588,7 @@ function updateRemaining() {
 function createIntro() {
   let div = createDiv({
     style: {
-      position: "fixed",
+      position: "absolute",
       top: 0,
       left: 0,
       width: "100%",
@@ -554,9 +622,9 @@ function createIntro() {
   let count = 3;
   let interval = setInterval(() => {
     if (count < 1) {
-      clearInterval(interval)
+      clearInterval(interval);
       end();
-      return
+      return;
     }
     count--;
     countdown.innerHTML = count;
@@ -566,7 +634,7 @@ function lose() {
   Loop.end();
   let div = createDiv({
     style: {
-      position: "fixed",
+      position: "absolute",
       top: 0,
       left: 0,
       width: "100%",
@@ -603,7 +671,7 @@ function win() {
   Loop.end();
   let div = createDiv({
     style: {
-      position: "fixed",
+      position: "absolute",
       top: 0,
       left: 0,
       width: "100%",
@@ -656,7 +724,10 @@ function clear() {
   STORE.points = 0;
   STORE.lifes = 3;
   while (alienList.length > 0) {
-    alienList.shift().kill();
+    const alien = alienList.shift();
+    if (alien.kill) {
+      alien.kill();
+    }
   }
   while (heroList.length > 0) {
     heroList.shift().kill();
@@ -664,13 +735,13 @@ function clear() {
   container.innerHTML = "";
 }
 function create() {
-  container = document.querySelector(".game-container");
+  container = document.querySelector("#space-game");
   center.x = container.offsetWidth / 2;
   center.y = container.offsetHeight / 2;
   container.style.background = `linear-gradient(0deg, #6778a5 -20%, #031032e0 20%, #000000e0 50%)`;
   clear();
   createAliens();
-  createHero();
+  const unbindHero = createHero();
   createSpaceShip();
 
   createUI();
@@ -679,6 +750,9 @@ function create() {
     // validate if ther eis aliens alive
     updateRemaining();
     validateIfLoseOrWin();
+  });
+  Loop.onEnd(() => {
+    unbindHero();
   });
 }
 window.playGame = () => {

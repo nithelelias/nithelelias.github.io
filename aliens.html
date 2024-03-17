@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aliens</title>
     <style>
+      .wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: #111;
+      }
       .game-container {
-        width: 100vw;
+        width: 400px;
+        max-width: 100%;
         height: 100svh;
         background-color: #111;
         position: fixed;
@@ -21,7 +28,9 @@
     </style>
   </head>
   <body>
-    <div class="game-container"></div>
+    <div class="wrapper">
+      <div class="game-container"></div>
+    </div>
     <script src="space.js"></script>
   </body>
 </html>

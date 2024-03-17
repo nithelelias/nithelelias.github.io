@@ -1,4 +1,10 @@
+
+
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+const scrollListeners = [];
+const onScrollListen = (callback) => {
+  scrollListeners.push(callback);
+};
 class DarkMode {
   static active = false;
   static set(_value) {
@@ -113,23 +119,16 @@ function isElementInViewPort(element) {
   return rect.top < halfSize && rect.bottom > halfSize;
 }
 function navMenu() {
-  let runs = [];
   document.querySelectorAll("nav a").forEach((linkRel) => {
     let sectionId = linkRel.attributes.href.value.replace("/", "");
     let section = document.querySelector(sectionId);
-    runs.push(() => {
+    onScrollListen(() => {
       if (isElementInViewPort(section)) {
         linkRel.classList.add("active");
       } else {
         linkRel.classList.remove("active");
       }
     });
-  });
-
-  document.addEventListener("scroll", (event) => {
-    for (let i in runs) {
-      runs[i]();
-    }
   });
 }
 
@@ -238,6 +237,7 @@ function stackCards() {
 function spaceInvaders() {
   let count = 0;
   let container = null;
+  const punchSound = new Audio("sounds/punch.mp3");
   const killTheChickens = () => {
     document.querySelectorAll(".chicken").forEach((_hen) => {
       _hen.kill();
@@ -249,6 +249,7 @@ function spaceInvaders() {
   const fadeInContainer = () => {
     container = document.createElement("div");
     container.classList.add("game-container");
+    container.innerHTML=`<div id="space-game"></div>`
     document.body.appendChild(container);
     document.body.style.overflow = "hidden";
     setTimeout(() => {
@@ -281,6 +282,8 @@ function spaceInvaders() {
   let trigger = document.querySelector(".space-trigger");
   trigger.onclick = (e) => {
     e.preventDefault();
+    punchSound.currentTime = 0;
+    punchSound.play();
     if (count > 3) {
       return false;
     }
@@ -296,13 +299,51 @@ function spaceInvaders() {
     return false;
   };
 }
+
+function infiniteScrollLateralSkills() {
+  const list = document.querySelector("#skill-list");
+  list.innerHTML += list.innerHTML;
+}
+
+function generateItchWigets() {
+  const states = {
+    visible: false,
+    rendered: false,
+  };
+  const gameSection = document.getElementById("games");
+  const widgetContentList = getItchWidgetFrames();
+  const render = () => {
+    if (states.rendered) return;
+    states.rendered = true;
+    const gameSectionContainer = gameSection.querySelector(".container");
+    gameSectionContainer.innerHTML = widgetContentList
+      .map((widgetHtml) => {
+        return `<div class="widget-container">${widgetHtml}</div>`;
+      })
+      .join("");
+  };
+
+  onScrollListen(() => {
+    if (!states.visible && isElementInViewPort(gameSection)) {
+      states.visible = true;
+      render();
+    }
+  });
+}
+//////
+document.addEventListener("scroll", (event) => {
+  for (let i in scrollListeners) {
+    scrollListeners[i]();
+  }
+});
 //// INIT
 initDarkMode();
 HeroWebLink();
 DarkModeSwitch();
 NavMenuBtn();
 ScrollBinder();
+infiniteScrollLateralSkills();
 
 navMenu();
 stackCards();
-spaceInvaders();
+spaceInvaders(); 
