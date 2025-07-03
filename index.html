@@ -38,9 +38,9 @@
           aria-label="button to open menu"
         ></button>
         <a aria-label="inicio" href="/#inicio">Inicio</a>
-        <a aria-label="inicio" href="/#experiencia">Experiencia</a>
-        <a aria-label="inicio" href="/#skills">Skills</a>
-        <a aria-label="inicio" href="/#perfil">Perfil</a>
+        <a aria-label="experiencia" href="/#experiencia">Experiencia</a>
+        <a aria-label="skills" href="/#skills">Skills</a>
+        <a aria-label="perfil" href="/#perfil">Perfil</a>
         <dark-mode-switch />
       </nav>
     </header>
@@ -68,7 +68,7 @@
           tecnológicas de todo índole, amo
           <strong
             >Javascript ❤️ y la creación de juegos web
-            <a class="space-trigger" role="button">👾</a>.</strong
+            <a href="#/games" aria-label="games">👾</a>.</strong
           >
           Actualmente especializado en <strong>Desarrollo Frontend</strong>.
         </p>
@@ -97,6 +97,7 @@
           >
             Contáctame
           </HeroWebLink>
+          <a class="gameButton">👾 Jugemos</a>
         </div>
       </section>
       <section
@@ -260,17 +261,9 @@
         </div>
       </section>
     </main>
-
-    <footer>
-      <p>
-        <a
-          href="https://www.flaticon.com/free-icons/chicken"
-          title="chicken icons"
-          >Chicken icon and others created by Freepik - Flaticon</a
-        >
-      </p>
-    </footer>
+    <div id="games">
+      <a class="gameButton">👾 Jugemos</a>
+    </div>
     <script type="module" src="portafolio.js"></script>
-    <script async type="module" src="chicken.js"></script>
   </body>
 </html>

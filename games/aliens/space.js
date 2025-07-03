@@ -1,4 +1,4 @@
-const maxWidth=400
+const maxWidth = 400;
 const POINT = 10;
 const emojis = `🛸👾🤖⚪🔴🟡⭐🏵️💥❤️`;
 const sounds = {
@@ -202,8 +202,8 @@ function Alien(x, y, max_distance = 100) {
 
   let minx = x - max_distance;
   let maxX = x + max_distance;
-  let speedX = 2,
-    speedY = 8;
+  let speedX = 1,
+    speedY = 4;
   let directionX = -speedX;
   let velocityY = 0;
   let alive = true;
@@ -349,8 +349,10 @@ function Shot(x, y, speedDir = [0, -1], targets = [], bullet = `🔴`) {
   });
 }
 function createAliens() {
+  const isMobile = window.innerWidth < 1024;
   const gap = 30;
-  const totals = 40;
+  const totals = isMobile ? 20 : 40;
+
   const maxPosibleRow = Math.min(
     12,
     parseInt(container.offsetWidth / (gap * 2))
@@ -368,13 +370,12 @@ function createAliens() {
   }
 }
 function cursorControls({ onPointerMove, onPointerDown, onPointerUp }) {
-  const offsetLeft=container.offsetLeft
+  const offsetLeft = container.offsetLeft;
   const pointermove = (event) => {
-    
     if (event.touches) {
-      onPointerMove(event.touches[0].clientX-offsetLeft);
+      onPointerMove(event.touches[0].clientX - offsetLeft);
     } else {
-      onPointerMove(event.clientX-offsetLeft);
+      onPointerMove(event.clientX - offsetLeft);
     }
   };
   const pointerdown = () => {
@@ -465,7 +466,7 @@ function createHero() {
 
   const unbindCursor = cursorControls({
     onPointerMove: (x) => {
-      velocityX=0
+      velocityX = 0;
       hero.setPosition(x, hero.position().y);
     },
     onPointerDown: () => {
@@ -735,7 +736,7 @@ function clear() {
   container.innerHTML = "";
 }
 function create() {
-  container = document.querySelector("#space-game");
+  container = document.querySelector("#game-container");
   center.x = container.offsetWidth / 2;
   center.y = container.offsetHeight / 2;
   container.style.background = `linear-gradient(0deg, #6778a5 -20%, #031032e0 20%, #000000e0 50%)`;

@@ -1,5 +1,3 @@
-
-
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 const scrollListeners = [];
 const onScrollListen = (callback) => {
@@ -133,12 +131,11 @@ function navMenu() {
 }
 
 function stackCards() {
-  let cards = document.querySelectorAll(".stack-card");
-  let maxZindex = cards.length;
+  const cards = document.querySelectorAll(".stack-card");
+
   var maxAngle = 35;
   const CardRender = (card, startIdx) => {
     const thresHold = 100;
-    let pressed = true;
     let from = {
       x: 0,
       y: 0,
@@ -234,101 +231,32 @@ function stackCards() {
 
   cards.forEach(CardRender);
 }
-function spaceInvaders() {
-  let count = 0;
-  let container = null;
-  const punchSound = new Audio("sounds/punch.mp3");
-  const killTheChickens = () => {
-    document.querySelectorAll(".chicken").forEach((_hen) => {
-      _hen.kill();
-    });
-    document.querySelectorAll(".egg").forEach((_egg) => {
-      _egg.kill();
-    });
-  };
-  const fadeInContainer = () => {
-    container = document.createElement("div");
-    container.classList.add("game-container");
-    container.innerHTML=`<div id="space-game"></div>`
-    document.body.appendChild(container);
-    document.body.style.overflow = "hidden";
-    setTimeout(() => {
-      container.style.opacity = 1;
-    }, 300);
-    return new Promise((resolve) => setTimeout(resolve, 1100));
-  };
-  const start = () => {
-    if (window.gameStarted) {
-      fadeInContainer().then(() => {
-        window.playGame();
-      });
-      return;
-    }
-    window.gameStarted = true;
-    window.endGame = () => {
-      document.body.style.overflow = "inherit";
-      count = 0;
-      container.remove();
-    };
-    killTheChickens();
-    fadeInContainer().then(() => {
-      var s = document.createElement("script");
-      s.src = "space.js";
-      document.body.appendChild(s);
-    });
-
-    //
-  };
-  let trigger = document.querySelector(".space-trigger");
-  trigger.onclick = (e) => {
-    e.preventDefault();
-    punchSound.currentTime = 0;
-    punchSound.play();
-    if (count > 3) {
-      return false;
-    }
-    count++;
-
-    console.log(
-      `%c ${count} ${count === 4 ? "🛸👾🤖" : ""}`,
-      "font-size:" + 12 * count + "px;color:blue;"
-    );
-    if (count > 3) {
-      start();
-    }
-    return false;
-  };
-}
 
 function infiniteScrollLateralSkills() {
   const list = document.querySelector("#skill-list");
   list.innerHTML += list.innerHTML;
 }
 
-function generateItchWigets() {
-  const states = {
-    visible: false,
-    rendered: false,
-  };
-  const gameSection = document.getElementById("games");
-  const widgetContentList = getItchWidgetFrames();
-  const render = () => {
-    if (states.rendered) return;
-    states.rendered = true;
-    const gameSectionContainer = gameSection.querySelector(".container");
-    gameSectionContainer.innerHTML = widgetContentList
-      .map((widgetHtml) => {
-        return `<div class="widget-container">${widgetHtml}</div>`;
-      })
-      .join("");
-  };
+function loadRandomGame() {
+  const random = (min, max) =>
+    Math.floor(Math.random() * (max - min + 1)) + min;
+  const games = [
+    "games/2048/",
+    "games/candygame",
+    "games/aliens",
+    "games/memorycard",
+  ];
+  const iframe = document.getElementById("iframeGames");
 
-  onScrollListen(() => {
-    if (!states.visible && isElementInViewPort(gameSection)) {
-      states.visible = true;
-      render();
-    }
-  });
+  const getRandomGame = () =>
+    games[random(0, games.length - 1)] + "?random=" + random(0, 100);
+  const buttons = document.querySelectorAll(".gameButton");
+
+  buttons.forEach((button) =>
+    button.addEventListener("click", () =>
+      window.open(getRandomGame(), "_BLANK")
+    )
+  );
 }
 //////
 document.addEventListener("scroll", (event) => {
@@ -346,4 +274,4 @@ infiniteScrollLateralSkills();
 
 navMenu();
 stackCards();
-spaceInvaders(); 
+loadRandomGame();

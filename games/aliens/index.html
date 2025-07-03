@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aliens</title>
     <style>
-      .wrapper {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        background-color: #111;
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #323232;
       }
-      .game-container {
-        width: 400px;
-        max-width: 100%;
+      body,
+      html {
+        overflow: hidden;
+        touch-action: none;
+      }
+      #game-container {
+        width: 100vw;
         height: 100svh;
         background-color: #111;
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        z-index: 10;
         user-select: none;
+        position: fixed;
+
+        -webkit-user-drag: none;
+        overflow: hidden;
       }
       .-go {
         border: thin dotted white;
@@ -29,7 +32,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="game-container"></div>
+      <div id="game-container"></div>
     </div>
     <script src="space.js"></script>
   </body>
