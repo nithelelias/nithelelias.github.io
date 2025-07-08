@@ -136,6 +136,7 @@ function stackCards() {
   var maxAngle = 35;
   const CardRender = (card, startIdx) => {
     const thresHold = 100;
+    let pressed = false;
     let from = {
       x: 0,
       y: 0,

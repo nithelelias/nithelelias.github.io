@@ -57,8 +57,6 @@ body {
     width: 100vw;
     height: 100vh;
     background-image: url(../images/papel-couche.png);
-
-    transition: all 1s;
   }
   &.dark {
     &::before {
@@ -469,9 +467,9 @@ body.dark .dark-mode-switch::after {
   left: 0;
 }
 .gameButton {
- padding: 10px;
- text-decoration: underline;
- cursor: pointer;
+  padding: 10px;
+  text-decoration: underline;
+  cursor: pointer;
 }
 #gameDialog {
   width: 100vw;
