@@ -1,0 +1,112 @@
+{
+  "intents": [
+    {
+      "id": "greeting",
+      "priority": 3,
+      "keywords": ["hola", "hey", "buenas", "saludos", "hi", "hello", "ey", "buenos dias", "buenas tardes", "buenas noches"],
+      "suggestions": ["¿Quién eres?", "¿Qué sabes hacer?", "¿Qué hora es?"]
+    },
+    {
+      "id": "name",
+      "priority": 8,
+      "keywords": ["nombre", "llamas", "apellidas", "identificas", "quien", "eres"],
+      "suggestions": ["¿Qué edad tienes?", "¿Qué sabes hacer?", "¿Cómo te contacto?"]
+    },
+    {
+      "id": "about",
+      "priority": 4,
+      "keywords": ["sobre", "presentate", "cuentame", "historia", "empezaste", "programar", "background", "ti"],
+      "suggestions": ["¿Qué edad tienes?", "¿Dónde trabajas?", "¿Haces videojuegos?"]
+    },
+    {
+      "id": "skills",
+      "priority": 6,
+      "keywords": ["skill", "skills", "habilidad", "habilidades", "sabes", "conoces", "tecnologia", "tecnologias", "lenguaje", "lenguajes", "framework", "manejas", "dominas", "stack", "herramientas"],
+      "suggestions": ["¿Y en frontend?", "¿Haces videojuegos?", "¿Cuánta experiencia tienes?"]
+    },
+    {
+      "id": "frontend",
+      "priority": 6,
+      "keywords": ["frontend", "react", "angular", "css", "html", "javascript", "js", "web", "interfaz", "ui", "ux", "gatsby"],
+      "suggestions": ["¿Y en backend?", "¿También fullstack?", "¿Dónde trabajas ahora?"]
+    },
+    {
+      "id": "backend",
+      "priority": 6,
+      "keywords": ["backend", "servidor", "server", "php", "nodejs", "node", "java", "swing", "python", "script", "scripts"],
+      "suggestions": ["¿Qué bases de datos manejas?", "¿Eres fullstack?", "¿Cuál es tu lenguaje favorito?"]
+    },
+    {
+      "id": "fullstack",
+      "priority": 7,
+      "keywords": ["fullstack", "full", "stack", "completo", "ambos", "todo", "monorepo", "monorepos", "integrado"],
+      "suggestions": ["¿Qué sabes de backend?", "¿Qué sabes de frontend?", "¿Cómo te contacto?"]
+    },
+    {
+      "id": "database",
+      "priority": 6,
+      "keywords": ["base", "datos", "sql", "postgres", "postgress", "mysql", "geoespacial", "gis", "administracion", "db"],
+      "suggestions": ["¿Manejas GIS?", "¿Qué sabes de backend?", "¿Cómo te contacto?"]
+    },
+    {
+      "id": "experience",
+      "priority": 6,
+      "keywords": ["experiencia", "trabajo", "trabajas", "trabajaste", "empresa", "empresas", "senior", "lider", "pragma", "ludycom", "cargo", "puesto", "rol"],
+      "suggestions": ["¿Qué hiciste en Pragma?", "¿Cuáles son tus habilidades?", "¿Cómo te contacto?"]
+    },
+    {
+      "id": "games",
+      "priority": 6,
+      "keywords": ["juego", "juegos", "videojuego", "videojuegos", "phaser", "godot", "unity", "itch", "game", "games", "gaming", "game dev"],
+      "suggestions": ["¿Con qué engine trabajas?", "¿Dónde veo tus juegos?", "¿Qué otras skills tienes?"]
+    },
+    {
+      "id": "contact",
+      "priority": 5,
+      "keywords": ["contacto", "contactar", "correo", "email", "linkedin", "github", "redes", "escribir", "comunicar", "hablar", "contratar"],
+      "suggestions": ["¿Cuál es tu GitHub?", "¿Tienes LinkedIn?", "¿A qué te dedicas?"]
+    },
+    {
+      "id": "personal",
+      "priority": 8,
+      "keywords": ["edad", "anos", "años", "naciste", "donde", "barranquilla", "colombia", "ciudad", "origen", "vives"],
+      "suggestions": ["¿Quién eres?", "¿Qué sabes hacer?", "¿Cómo te contacto?"]
+    },
+    {
+      "id": "time",
+      "priority": 7,
+      "keywords": ["hora", "momento", "reloj"],
+      "suggestions": ["¿Qué día es hoy?", "¿Cuánto tiempo llevamos hablando?", "¿Quién eres?"]
+    },
+    {
+      "id": "date",
+      "priority": 7,
+      "keywords": ["fecha", "dia", "hoy", "manana", "calendario"],
+      "suggestions": ["¿Qué hora es?", "¿Cuánto tiempo llevamos hablando?", "¿Qué sabes hacer?"]
+    },
+    {
+      "id": "duration",
+      "priority": 7,
+      "keywords": ["cuanto", "tiempo", "llevamos", "conversado", "hablado", "chateado", "hablando", "charlando"],
+      "suggestions": ["¿Qué hora es?", "¿Quién eres?", "¿Qué sabes hacer?"]
+    },
+    {
+      "id": "bot",
+      "priority": 5,
+      "keywords": ["ia", "ai", "robot", "bot", "inteligencia", "artificial", "humano", "persona", "real"],
+      "suggestions": ["¿Quién eres?", "¿Qué sabes hacer?", "¿Cómo te contacto?"]
+    },
+    {
+      "id": "education",
+      "priority": 6,
+      "keywords": ["educacion", "estudios", "universidad", "estudiaste", "titulo", "graduaste", "formacion", "academica", "escuela", "colegio", "estudiado"],
+      "suggestions": ["¿Dónde estudiaste?", "¿Qué título tienes?", "¿Cuál es tu experiencia?"]
+    },
+    {
+      "id": "fallback",
+      "priority": 0,
+      "keywords": [],
+      "suggestions": ["¿Quién eres?", "¿Qué sabes hacer?", "¿Dónde has trabajado?", "¿Cómo te contacto?"]
+    }
+  ]
+}

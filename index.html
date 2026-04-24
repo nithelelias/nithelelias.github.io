@@ -1,285 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="content-language" content="es" />
-    <meta name="author" content="nithel elias" />
-    <meta name="title" content="Soy, Nithel Elias" />
-    <meta
-      name="Description"
-      content="Portafolio de Nithel Elias, con mas de 10 años de experiencia siendo Ingeniero de Software trabajando en soluciones tecnológicas de todo índole"
-    />
-    <title>Soy, Nithel Elias</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="images/favico.ico" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="css/fonts.css"
-      media="print"
-      async
-      onload="this.media='all'; this.onload = null"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="css/portafolio.css"
-      onload="this.media='all'; this.onload = null"
-    />
-  </head>
-  <body class="layer">
-    <header>
-      <nav>
-        <button
-          class="mobile-menu-button"
-          name="menu-button"
-          aria-label="button to open menu"
-        ></button>
-        <a aria-label="inicio" href="/#inicio">Inicio</a>
-        <a aria-label="experiencia" href="/#experiencia">Experiencia</a>
-        <a aria-label="skills" href="/#skills">Skills</a>
-        <a aria-label="perfil" href="/#perfil">Perfil</a>
-        <dark-mode-switch />
-      </nav>
-    </header>
 
-    <main>
-      <section
-        id="inicio"
-        aria-label="Introduccion de quien es nithel elias de forma general"
-      >
-        <div class="iam">
-          <div class="over-pic" title="Soy yo">
-            <img
-              src="images/foto.webp"
-              class="pic oval"
-              alt="Foto de Nithel Elias"
-              title="Soy yo"
-              width="200px"
-            />
-          </div>
-          <h1>Hola, soy Nithel Elias</h1>
-        </div>
-        <p class="about end-cursor">
-          Tengo más de 10 años de experiencia siendo
-          <strong>Ingeniero de Software</strong> trabajando en soluciones
-          tecnológicas de todo índole, amo
-          <strong
-            >Javascript ❤️ y la creación de juegos web
-            <a href="#/games" aria-label="games">👾</a>.</strong
-          >
-          Actualmente especializado en <strong>Desarrollo Frontend</strong>.
-        </p>
-        <div class="flex">
-          <HeroWebLink
-            image="images/icons/github-icon.png"
-            href="https://github.com/nithelelias/"
-          >
-            GitHub
-          </HeroWebLink>
-          <HeroWebLink
-            image="images/icons/linkedin-icon.svg"
-            href="https://linkedin.com/in/nithel-elias"
-          >
-            LinkedIn
-          </HeroWebLink>
-          <HeroWebLink
-            image="images/icons/itchio-icon.png"
-            href="https://nithelelias.itch.io/"
-          >
-            Itch.io
-          </HeroWebLink>
-          <HeroWebLink
-            image="images/icons/gmail-icon.svg"
-            href="mailto:nithelelias@gmail.com"
-          >
-            Contáctame
-          </HeroWebLink>
-          <a class="gameButton">👾 Jugemos</a>
-        </div>
-      </section>
-      <section
-        id="experiencia"
-        aria-label="Informacion reciente de la experiencia laboral del autor"
-      >
-        <h2>Experiencia</h2>
-        <ol class="experience-timeline">
-          <li class="flex">
-            <div class="side">
-              <h3>Pragma Perú</h3>
-              <h4>Desarrollador Front End</h4>
-              <p>Actualmente</p>
-            </div>
-            <div class="side">
-              <p class="end-cursor">
-                <strong> Líder Frontend </strong> en desarrollo de plataformas y
-                componentes webs, Creación de componentes en React con gastsby y
-                Juegos Online Usando Phaser JS
-              </p>
-              <a
-                href="https://phaser.io/"
-                rel="noopener noreferrer"
-                role="link"
-                target="_blank"
-                >¿Que es PhaserJs?</a
-              >
-            </div>
-          </li>
-          <li class="flex">
-            <div class="side">
-              <h3>Ludycom Lima</h3>
-              <h4>Desarrollador Full-stack</h4>
-              <p>Junio 2022</p>
-            </div>
-            <div class="side">
-              <p>
-                <strong>Desarrollador Full-Stack</strong>, para diferentes
-                productos y dispositivos, desde administración de base de datos,
-                servidores hasta desarrollo y evolutivo de aplicaciones móviles
-                para Windows Mobile y Android, también desarrollo y soporte de
-                programas in-house en de diferentes lenguajes que usan librerías
-                GIS.
-              </p>
-              <a
-                href="https://www.esri.es/es-es/descubre-los-gis/qu-es-sig/que-es-sig"
-                rel="noopener noreferrer"
-                role="link"
-                target="_blank"
-                >¿Que es GIS?</a
-              >
-            </div>
-          </li>
-        </ol>
-      </section>
-      <section
-        id="skills"
-        aria-label="Lista desordenada de habilidades adquiridas del autor"
-      >
-        <h2>Habilidades</h2>
-        <p>Estas son mis habilidades mas comunes</p>
-        <div id="skill-list">
-          <div class="hor-scroller">
-            <ul class="flex">
-              <li><div class="skill-pill" data-level="5">Javascript</div></li>
-              <li><div class="skill-pill" data-level="5">HTML</div></li>
-              <li><div class="skill-pill" data-level="5">CSS</div></li>
-              <li><div class="skill-pill" data-level="5">PhaserJs</div></li>
-              <li><div class="skill-pill" data-level="4">React</div></li>
-              <li><div class="skill-pill" data-level="4">Angular</div></li>
-              <li><div class="skill-pill" data-level="3">NodeJs</div></li>
-              <li><div class="skill-pill" data-level="3">Git</div></li>
-              <li><div class="skill-pill" data-level="3">Java</div></li>
-              <li><div class="skill-pill" data-level="3">C#</div></li>
-              <li><div class="skill-pill" data-level="3">PHP</div></li>
-              <li><div class="skill-pill" data-level="3">SQL</div></li>
-              <li><div class="skill-pill" data-level="3">Python</div></li>
-              <li><div class="skill-pill" data-level="3">Godot</div></li>
-              <li><div class="skill-pill" data-level="2">Unity</div></li>
-            </ul>
-          </div>
-        </div>
-      </section>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="content-language" content="es" />
+  <meta name="author" content="Nithel Elias" />
+  <meta name="title" content="Nithel Elias — Ingeniero de Software" />
+  <meta name="description"
+    content="Portafolio de Nithel Elias, con mas de 10 años de experiencia siendo Ingeniero de Software trabajando en soluciones tecnológicas de todo índole." />
+  <title>Nithel Elias</title>
+  <link rel="icon" href="images/favico.ico" />
+  <link rel="preload" href="content.json" as="fetch" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
 
-      <section
-        id="perfil"
-        aria-label="Presentacion personal de quien es nithel elias el autor de este portafolio"
-      >
-        <h2>Perfil</h2>
-        <div class="flex">
-          <div class="perfil-side-left">
-            <p>
-              Me llamo Nithel Rene Elias Alvarez, empecé a programar desde mis
-              12 años cuando mi hermana estudiaba su ingeniería de sistemas.
-              <strong
-                >Actualmente lidero el area Frontend donde trabajo.</strong
-              >
-            </p>
-            <p class="end-cursor">
-              <strong>soy partícipe de todos los procesos</strong> a los cuales
-              me puedo involucrar, sean de programación, diseño o estrategias
-              diversas.
-            </p>
-            <p>
-              Siempre Me mantengo pendiente de nuevos retos, lo que me llevó a
-              aprender sobre
-              <strong>diseño y creación de videojuegos.</strong> Puedes mirar
-              algunos de mis trabajos
-              <a
-                href="https://nithelelias.itch.io/"
-                rel="noopener noreferrer"
-                role="link"
-                target="_blank"
-                aria-label="Link a portafolio de juegos de nithel elias"
-                >aqui en Itch.io</a
-              >
-            </p>
-          </div>
+<body>
 
-          <div class="perfil-side-right">
-            <figure>
-              <div class="stack">
-                <img
-                  src="images/foto3.webp"
-                  class="roundrec stack-card"
-                  alt="Foto de epoca de Nithel Elias"
-                  title="otra foto mia aun soy yo"
-                  width="200px"
-                  height="270px"
-                />
-                <img
-                  src="images/foto.webp"
-                  class="roundrec stack-card"
-                  alt="Foto en onda de Nithel Elias"
-                  title="Yo en onda "
-                  width="200px"
-                  height="270px"
-                />
-                <img
-                  src="images/foto2.webp"
-                  class="roundrec stack-card"
-                  alt="Foto lateral de Nithel Elias"
-                  title="Foto lateral mia toda interesantonga"
-                  width="200px"
-                  height="270px"
-                />
-              </div>
-              <figcaption class="flex --column">
-                ¡Me gusta Programar!
-                <a
-                  rel="noopener noreferrer"
-                  role="link"
-                  target="_blank"
-                  href="mailto:nithelelias@gmail.com"
-                >
-                  Contacto
-                </a>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-        <article>
-          <h3>Que me gusta</h3>
-          <p>Un poco personal, mis gustos musicales para programar ⌨️</p>
-          <div class="spotify-playlist-wrapper">
-            <iframe
-              style="border-radius: 12px"
-              src="https://open.spotify.com/embed/playlist/5TzgrEJIYUORZcm1iUONNB?utm_source=generator&theme=0"
-              width="100%"
-              height="352"
-              frameborder="0"
-              allowfullscreen=""
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            ></iframe>
-          </div>
-        </article>
-      </section>
-    </main>
-    <div id="games">
-      <a class="gameButton">👾 Jugemos</a>
-    </div>
-    <script type="module" src="portafolio.js"></script>
-  </body>
+  <main id="app">
+
+  </main>
+  <p id="hidden-info">
+    NITHEL RENE ELIAS ALVAREZ
+    Systems Engineer | Frontend Developer | Web & Game Developer
+    Nasca, nithelelias@gmail.com
+    Portfolio: https://nithelelias.github.io/ | GitHub: https://github.com/nithelelias | Games:
+    https://nithelelias.itch.io/
+    PROFESSIONAL SUMMARY
+    Frontend-focused Software Engineer with 10+ years of experience building web applications,
+    dashboards, mobile solutions, and browser-based games. Strong background in React, Angular, and
+    Phaser.js, with experience in backend services, databases, and GIS platforms. Skilled in leading
+    teams, delivering scalable products, and working in Agile environments.
+    TECHNICAL SKILLS
+    Languages
+    JavaScript (ES6+), TypeScript, Java, C#, C++, Python
+    Frontend
+    React, Angular, Preact, HTML5, CSS3, jQuery, Three.js
+    Frontend Architecture
+    Microfrontends, modular design, design systems, reusable component libraries,
+    monorepos, Atomic Design
+    Testing & Quality
+    Jest, unit testing, integration testing, test-driven development (TDD), code reviews,
+    CI/CD pipelines
+    Backend
+    Node.js, PHP, Java, Python, REST APIs, Web Services
+    Game & Graphics Development
+    Phaser.js, Godot, Unity, Canvas API, WebGL, real-time rendering
+    Databases
+    SQL Server, Oracle, MySQL, PostgresSQL
+    DevOps & Collaboration
+    Git, GitHub, Azure DevOps, Trello, Scrum, Kanban, Agile, CI/CD, team leadership
+    PROFESSIONAL EXPERIENCE
+    Pragma S.A. — Frontend Developer & Web Game Developer (2022–Present)
+    · Developed Angular and React web applications and enterprise dashboards
+    · Built custom canvas-based visualization plugins
+    · Led frontend development initiatives
+    · Created browser games using Phaser.js
+    Ludycom — Software Engineer & GIS Support Engineer (2012–2022)
+    · Mobile development for Android and Windows Mobile
+    · SQL Server and Oracle database administration
+    · C# .NET desktop and mobile applications
+    · ArcGIS JavaScript API and Runtime solutions
+    · AngularJS and Bootstrap web apps
+    · Windows Server administration and Python scripting
+    Gijutsu Designes — Web Developer (2011–2012)
+    · PHP intranet systems and MySQL databases
+    · CSS and jQuery web interfaces
+    · Flash ActionScript applications
+    Earlier Experience
+    · Database Administration Intern – Access America
+    · HR Systems Intern – Acoolsure Atlántico
+    · IT Support Technician – Sistemas y Servicios Sislitoral
+    EDUCATION
+    · Systems Engineering Degree – Politécnico de la Costa Atlántica
+    · Technologist in Information Systems – Instituto Tecnológico de Soledad Atlántico ITSA
+    · Technical Degree in Information Systems – Instituto Tecnológico de Soledad Atlántico
+    ITSA
+  </p>
+  <script type="module" src="index.js"></script>
+</body>
+
 </html>

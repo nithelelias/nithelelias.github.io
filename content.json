@@ -1,0 +1,187 @@
+{
+  "personal_info": {
+    "name": "Nithel Elias",
+    "full_name": "Nithel Rene Elias Alvarez",
+    "title": "Ingeniero de Sistemas | Desarrollador Frontend | Desarrollador Web y de Videojuegos",
+    "specialization": "Frontend Developer",
+    "experience_years": "10+",
+    "experience_start_year": 2011,
+    "born_year": 1988,
+    "birthplace": "Barranquilla, Colombia",
+    "location": "Nasca, Perú",
+    "description": "Ingeniero de Software enfocado en Frontend con más de 10 años de experiencia construyendo aplicaciones web, dashboards, soluciones móviles y juegos de navegador.",
+    "about": "Sólida formación en React, Angular y Phaser.js, con experiencia en servicios backend, bases de datos y plataformas GIS. Experto en liderar equipos, entregar productos escalables y trabajar en entornos Agile."
+  },
+  "contact": {
+    "github": "https://github.com/nithelelias",
+    "linkedin": "https://linkedin.com/in/nithel-elias",
+    "itchio": "https://nithelelias.itch.io/",
+    "portfolio": "https://nithelelias.github.io/",
+    "email": "nithelelias@gmail.com"
+  },
+  "experience": [
+    {
+      "company": "Pragma S.A.",
+      "role": "Desarrollador Frontend y de Videojuegos Web",
+      "period": "2022–Presente",
+      "description": "Desarrollo de aplicaciones web Angular y React y dashboards empresariales. Creación de plugins de visualización personalizados basados en canvas. Liderazgo de iniciativas de desarrollo frontend y creación de juegos de navegador usando Phaser.js.",
+      "links": [
+        {
+          "label": "¿Qué es PhaserJs?",
+          "url": "https://phaser.io/"
+        }
+      ]
+    },
+    {
+      "company": "Ludycom",
+      "role": "Ingeniero de Software e Ingeniero de Soporte GIS",
+      "period": "2012–2022",
+      "description": "Desarrollo móvil para Android y Windows Mobile. Administración de bases de datos SQL Server y Oracle. Desarrollo de aplicaciones C# .NET y soluciones ArcGIS JavaScript API. Administración de servidores Windows y scripting en Python.",
+      "links": [
+        {
+          "label": "¿Qué es GIS?",
+          "url": "https://www.esri.es/es-es/descubre-los-gis/qu-es-sig/que-es-sig"
+        }
+      ]
+    },
+    {
+      "company": "Gijutsu Designes",
+      "role": "Desarrollador Web",
+      "period": "2011–2012",
+      "description": "Desarrollo de sistemas de intranet en PHP con MySQL. Creación de interfaces web con CSS y jQuery. Desarrollo de aplicaciones interactivas en Flash ActionScript.",
+      "links": []
+    }
+  ],
+  "skills": [
+    {
+      "name": "Javascript (ES6+)"
+    },
+    {
+      "name": "TypeScript"
+    },
+    {
+      "name": "React"
+    },
+    {
+      "name": "Angular"
+    },
+    {
+      "name": "Preact"
+    },
+    {
+      "name": "HTML5"
+    },
+    {
+      "name": "CSS3"
+    },
+    {
+      "name": "Phaser.js"
+    },
+    {
+      "name": "Three.js"
+    },
+    {
+      "name": "Node.js"
+    },
+    {
+      "name": "PHP"
+    },
+    {
+      "name": "Java"
+    },
+    {
+      "name": "C#"
+    },
+    {
+      "name": "C++"
+    },
+    {
+      "name": "Python"
+    },
+    {
+      "name": "SQL Server"
+    },
+    {
+      "name": "Oracle"
+    },
+    {
+      "name": "MySQL"
+    },
+    {
+      "name": "PostgreSQL"
+    },
+    {
+      "name": "Git"
+    },
+    {
+      "name": "GitHub"
+    },
+    {
+      "name": "Azure DevOps"
+    },
+    {
+      "name": "Godot"
+    },
+    {
+      "name": "Unity"
+    },
+    {
+      "name": "Canvas API"
+    },
+    {
+      "name": "WebGL"
+    },
+    {
+      "name": "Microfrontends"
+    },
+    {
+      "name": "Jest"
+    },
+    {
+      "name": "TDD"
+    },
+    {
+      "name": "CI/CD"
+    },
+    {
+      "name": "Scrum/Agile"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Ingeniería de Sistemas",
+      "institution": "Politécnico de la Costa Atlántica"
+    },
+    {
+      "degree": "Tecnólogo en Sistemas de Información",
+      "institution": "Instituto Tecnológico de Soledad Atlántico ITSA"
+    },
+    {
+      "degree": "Técnico en Sistemas de Información",
+      "institution": "Instituto Tecnológico de Soledad Atlántico ITSA"
+    }
+  ],
+  "profile": {
+    "bio": [
+      "Soy un Ingeniero de Sistemas y Desarrollador Frontend con más de 10 años de trayectoria. Mi pasión por la programación comenzó a los 12 años, y desde entonces he evolucionado desde el desarrollo Full Stack hacia la especialización en interfaces de alto impacto y videojuegos web.",
+      "Cuento con una sólida experiencia liderando equipos técnicos y entregando productos escalables en entornos ágiles. Me destaco por mi capacidad para involucrarme en todas las fases del proyecto, desde el diseño y la arquitectura hasta la implementación final.",
+      "Siempre estoy en busca de nuevos retos tecnológicos, lo que me ha llevado a dominar herramientas modernas de desarrollo web y motores de videojuegos como Phaser.js, Godot y Unity."
+    ],
+    "interests": {
+      "music_spotify": "https://open.spotify.com/embed/playlist/5TzgrEJIYUORZcm1iUONNB?utm_source=generator&theme=0"
+    }
+  },
+  "images": {
+    "profile_pics": [
+      "images/foto.webp",
+      "images/foto2.webp",
+      "images/foto3.webp"
+    ],
+    "icons": {
+      "github": "images/icons/github-icon.png",
+      "linkedin": "images/icons/linkedin-icon.svg",
+      "itchio": "images/icons/itchio-icon.png",
+      "gmail": "images/icons/gmail-icon.svg"
+    }
+  }
+}
