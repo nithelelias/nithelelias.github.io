@@ -53,99 +53,42 @@
     }
   ],
   "skills": [
-    {
-      "name": "Javascript (ES6+)"
-    },
-    {
-      "name": "TypeScript"
-    },
-    {
-      "name": "React"
-    },
-    {
-      "name": "Angular"
-    },
-    {
-      "name": "Preact"
-    },
-    {
-      "name": "HTML5"
-    },
-    {
-      "name": "CSS3"
-    },
-    {
-      "name": "Phaser.js"
-    },
-    {
-      "name": "Three.js"
-    },
-    {
-      "name": "Node.js"
-    },
-    {
-      "name": "PHP"
-    },
-    {
-      "name": "Java"
-    },
-    {
-      "name": "C#"
-    },
-    {
-      "name": "C++"
-    },
-    {
-      "name": "Python"
-    },
-    {
-      "name": "SQL Server"
-    },
-    {
-      "name": "Oracle"
-    },
-    {
-      "name": "MySQL"
-    },
-    {
-      "name": "PostgreSQL"
-    },
-    {
-      "name": "Git"
-    },
-    {
-      "name": "GitHub"
-    },
-    {
-      "name": "Azure DevOps"
-    },
-    {
-      "name": "Godot"
-    },
-    {
-      "name": "Unity"
-    },
-    {
-      "name": "Canvas API"
-    },
-    {
-      "name": "WebGL"
-    },
-    {
-      "name": "Microfrontends"
-    },
-    {
-      "name": "Jest"
-    },
-    {
-      "name": "TDD"
-    },
-    {
-      "name": "CI/CD"
-    },
-    {
-      "name": "Scrum/Agile"
-    }
+    { "name": "Javascript (ES6+)", "level": 5, "category": "Languages" },
+    { "name": "TypeScript", "level": 5, "category": "Languages" },
+    { "name": "Java", "level": 4, "category": "Languages" },
+    { "name": "C#", "level": 4, "category": "Languages" },
+    { "name": "C++", "level": 3, "category": "Languages" },
+    { "name": "Python", "level": 4, "category": "Languages" },
+    { "name": "PHP", "level": 4, "category": "Languages" },
+    { "name": "Common (Lenguaje Común)", "level": 5, "category": "Languages" },
+    
+    { "name": "React", "level": 5, "category": "Frontend" },
+    { "name": "Angular", "level": 5, "category": "Frontend" },
+    { "name": "Preact", "level": 4, "category": "Frontend" },
+    { "name": "HTML5", "level": 5, "category": "Frontend" },
+    { "name": "CSS3", "level": 5, "category": "Frontend" },
+    { "name": "Microfrontends", "level": 5, "category": "Frontend" },
+    { "name": "Three.js", "level": 4, "category": "Frontend" },
+    { "name": "Canvas API", "level": 5, "category": "Frontend" },
+    { "name": "WebGL", "level": 4, "category": "Frontend" },
+    
+    { "name": "Phaser.js", "level": 5, "category": "Game Dev" },
+    { "name": "Godot", "level": 4, "category": "Game Dev" },
+    { "name": "Unity", "level": 3, "category": "Game Dev" },
+    
+    { "name": "Node.js", "level": 4, "category": "Backend & DB" },
+    { "name": "SQL Server", "level": 4, "category": "Backend & DB" },
+    { "name": "Oracle", "level": 4, "category": "Backend & DB" },
+    { "name": "MySQL", "level": 5, "category": "Backend & DB" },
+    { "name": "PostgreSQL", "level": 4, "category": "Backend & DB" },
+    
+    { "name": "Git", "level": 5, "category": "Tools & DevOps" },
+    { "name": "GitHub", "level": 5, "category": "Tools & DevOps" },
+    { "name": "Azure DevOps", "level": 4, "category": "Tools & DevOps" },
+    { "name": "Jest", "level": 4, "category": "Tools & DevOps" },
+    { "name": "TDD", "level": 4, "category": "Tools & DevOps" },
+    { "name": "CI/CD", "level": 4, "category": "Tools & DevOps" },
+    { "name": "Scrum/Agile", "level": 5, "category": "Tools & DevOps" }
   ],
   "education": [
     {

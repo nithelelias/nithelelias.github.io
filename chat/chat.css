@@ -54,6 +54,9 @@ body.theme-light {
     --text-on-accent: #ffffff;
 }
 
+body.theme-light .msg.bot::before { color: #ffffff; }
+
+
 
 * {
     margin: 0;

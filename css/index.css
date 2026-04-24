@@ -160,6 +160,18 @@ body.theme-light section {
     box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px var(--text-main);
 }
 
+body.theme-light h2 {
+    color: #ffffff; /* Texto blanco sobre fondo gris oscuro */
+}
+
+body.theme-light .hero, body.theme-light .hero h1, body.theme-light .hero p {
+    color: #ffffff; /* Texto blanco sobre fondo negro del Hero */
+}
+
+body.theme-light .hero h1 {
+    -webkit-text-stroke: 1px #000000;
+}
+
 
 
 * {
@@ -324,30 +336,123 @@ p {
     transform: rotate(-2deg);
 }
 
-/* Skills Inventory Slots */
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1.5rem;
-}
-
-.skill-tag {
+/* Skills File Explorer */
+.skills-explorer {
+    display: flex;
+    gap: 2rem;
     background: var(--card-bg);
     border: var(--border-width) solid var(--text-main);
+    min-height: 400px;
+}
+
+.skills-sidebar {
+    width: 200px;
+    border-right: var(--border-width) solid var(--text-main);
+    background: rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.folder {
     padding: 1rem;
-    font-family: var(--pixel-font);
-    font-size: 0.6rem;
-    text-align: center;
-    box-shadow: 4px 4px 0px var(--text-main);
+    border-bottom: 2px solid var(--text-main);
     cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--pixel-font);
+    font-size: 0.6rem;
+    line-height: 1.4; /* Evita que las letras se monten */
+    transition: all 0.2s;
 }
 
-.skill-tag:hover {
+.folder:hover, .folder.active {
     background: var(--accent-2);
-    transform: scale(1.05);
+    padding-left: 1.2rem;
+}
+
+.folder.active::before {
+    content: ">";
+    margin-right: 5px;
+}
+
+.skills-main {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Evita desbordamientos de flex */
+}
+
+.directory-path {
+    font-family: var(--pixel-font);
+    font-size: 0.7rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-1);
+    word-break: break-all;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-file {
+    display: flex;
+    flex-direction: row; /* Icono al lado del texto */
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--text-main);
+    background: var(--card-bg);
+    box-shadow: 4px 4px 0 var(--text-main);
+    transition: all 0.1s;
+    cursor: default;
+}
+
+.skill-file:hover {
+    background: var(--accent-1);
+    color: var(--text-on-accent);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--text-main);
+}
+
+.file-name {
+    font-weight: 700;
+    font-size: 0.85rem;
+    line-height: 1.2;
+}
+
+.skill-level-bar {
+    height: 10px;
+    background: rgba(0,0,0,0.1);
+    border: 1px solid var(--text-main);
+}
+
+.skill-level-bar .fill {
+    height: 100%;
+    background: var(--accent-1);
+}
+
+@media (max-width: 768px) {
+    .skills-explorer {
+        flex-direction: column;
+    }
+    
+    .skills-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: var(--border-width) solid var(--text-main);
+        flex-direction: row;
+        overflow-x: auto;
+    }
+    
+    .folder {
+        border-bottom: none;
+        border-right: 2px solid var(--text-main);
+        white-space: nowrap;
+    }
 }
 
 /* Quest Log (Experience) */

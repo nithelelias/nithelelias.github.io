@@ -122,7 +122,7 @@ function renderHero(parent, info, contact) {
                 <p>> ${info.about}</p>
                 <div class="cta-group">
                     <a href="#experience" class="btn">QUESTS</a>
-                    <a href="${contact.itchio}" target="_blank" class="btn" style="background: var(--accent-1); color: white;">GAMES</a>
+                    <a href="${contact.itchio}" target="_blank" class="btn" style="background: var(--accent-1); color: var(--text-on-accent);">GAMES</a>
                     <a href="${contact.github}" target="_blank" class="btn">GITHUB</a>
                 </div>
             </div>
@@ -155,16 +155,56 @@ function renderExperience(parent, experience) {
 }
 
 function renderSkills(parent, skills) {
+    if (!skills || skills.length === 0) return;
+
     const section = document.createElement('section');
     section.id = 'skills';
-    section.innerHTML = `
-        <h2>INVENTORY (SKILLS)</h2>
-        <div class="skills-container">
-            ${skills.map(skill => `<div class="skill-tag">${skill.name}</div>`).join('')}
-        </div>
-    `;
+    
+    // Group skills by category (ensure category exists)
+    const categories = [...new Set(skills.map(s => s.category || 'Otros'))];
+    let activeCategory = categories[0];
+
+    const renderContent = () => {
+        const filteredSkills = skills.filter(s => (s.category || 'Otros') === activeCategory);
+        
+        section.innerHTML = `
+            <h2>SKILLS</h2>
+            <div class="skills-explorer">
+                <div class="skills-sidebar">
+                    ${categories.map(cat => `
+                        <div class="folder ${cat === activeCategory ? 'active' : ''}" data-category="${cat}">
+                            <span class="icon">📁</span>
+                            <span class="name">${cat.toUpperCase()}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="skills-main">
+                    <div class="directory-path">C:\\SKILLS\\${activeCategory.toUpperCase()}></div>
+                    <div class="skills-grid">
+                        ${filteredSkills.map(skill => `
+                            <div class="skill-file">
+                                <span class="file-icon">📄</span>
+                                <span class="file-name">${skill.name}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Add events
+        section.querySelectorAll('.folder').forEach(folder => {
+            folder.onclick = () => {
+                activeCategory = folder.dataset.category;
+                renderContent();
+            };
+        });
+    };
+
+    renderContent();
     parent.appendChild(section);
 }
+
 
 function renderEducation(parent, education) {
     const section = document.createElement('section');
@@ -192,7 +232,7 @@ function renderContact(parent, contact) {
         <div class="cta-group">
             <a href="mailto:${contact.email}" class="btn">SEND MSG</a>
             <a href="${contact.linkedin}" target="_blank" class="btn">LINKEDIN</a>
-            <a href="${contact.itchio}" target="_blank" class="btn" style="background: var(--accent-1);">ITCH.IO</a>
+            <a href="${contact.itchio}" target="_blank" class="btn" style="background: var(--accent-1); color: var(--text-on-accent);">ITCH.IO</a>
         </div>
     `;
     parent.appendChild(section);
