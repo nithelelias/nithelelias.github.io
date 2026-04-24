@@ -20,6 +20,7 @@ async function initPortfolio() {
         renderPaletteSelector();
         renderChatButton();
         applySavedTheme();
+        initWordScramble(); // Activamos el efecto de juego
         
     } catch (error) {
         console.error('Error initializing portfolio:', error);
@@ -122,7 +123,7 @@ function renderHero(parent, info, contact) {
                 <p>> ${info.about}</p>
                 <div class="cta-group">
                     <a href="#experience" class="btn">QUESTS</a>
-                    <a href="${contact.itchio}" target="_blank" class="btn" style="background: var(--accent-1); color: var(--text-on-accent);">GAMES</a>
+                    <a href="${contact.itchio}" target="_blank" class="btn btn-accent">GAMES</a>
                     <a href="${contact.github}" target="_blank" class="btn">GITHUB</a>
                 </div>
             </div>
@@ -232,7 +233,7 @@ function renderContact(parent, contact) {
         <div class="cta-group">
             <a href="mailto:${contact.email}" class="btn">SEND MSG</a>
             <a href="${contact.linkedin}" target="_blank" class="btn">LINKEDIN</a>
-            <a href="${contact.itchio}" target="_blank" class="btn" style="background: var(--accent-1); color: var(--text-on-accent);">ITCH.IO</a>
+            <a href="${contact.itchio}" target="_blank" class="btn btn-accent">ITCH.IO</a>
         </div>
     `;
     parent.appendChild(section);
@@ -240,4 +241,52 @@ function renderContact(parent, contact) {
 
 
 
+
 document.addEventListener('DOMContentLoaded', initPortfolio);
+
+/**
+ * Efecto de Glitch: Desordena las letras de las palabras al pasar el mouse.
+ */
+function initWordScramble() {
+    const scrambleWord = (word) => {
+        if (word.length <= 3) return word;
+        const letters = word.split('');
+        for (let i = letters.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [letters[i], letters[j]] = [letters[j], letters[i]];
+        }
+        return letters.join('');
+    };
+
+    const targets = document.querySelectorAll('h1, h2, h3, p, .file-name, .folder .name');
+    targets.forEach(target => {
+        const words = target.innerText.split(' ');
+        target.innerHTML = words.map(w => `<span class="glitch-word">${w}</span>`).join(' ');
+    });
+
+    document.body.addEventListener('mouseover', (e) => {
+        const target = e.target;
+        if (target.classList.contains('glitch-word') && !target.dataset.interval) {
+            if (!target.dataset.original) {
+                target.dataset.original = target.innerText;
+            }
+            
+            // Creamos un intervalo para que no pare de cambiar
+            target.dataset.interval = setInterval(() => {
+                target.innerText = scrambleWord(target.dataset.original);
+            }, 100);
+            
+            target.classList.add('scrambling');
+        }
+    });
+
+    document.body.addEventListener('mouseout', (e) => {
+        const target = e.target;
+        if (target.dataset.interval) {
+            clearInterval(parseInt(target.dataset.interval));
+            delete target.dataset.interval;
+            target.innerText = target.dataset.original;
+            target.classList.remove('scrambling');
+        }
+    });
+}

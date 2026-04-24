@@ -8,6 +8,8 @@ export class ChatEngine {
     this.content = null;
     this.intents = null;
     this.startTime = Date.now();
+    this.userName = localStorage.getItem("chat_user_name") || null;
+    this.isAwaitingName = false;
   }
 
   async init() {
@@ -104,14 +106,89 @@ export class ChatEngine {
       .map(m => m.intent);
   }
 
+  /**
+   * Intenta extraer y guardar información del usuario (como su nombre)
+   */
+  processMemory(input) {
+    const norm = this.normalize(input);
+    const namePatterns = [
+      /mi nombre es ([\w\s]+)/i,
+      /me llamo ([\w\s]+)/i,
+      /soy ([\w\s]+)/i,
+      /puedes decirme ([\w\s]+)/i
+    ];
+
+    for (const pattern of namePatterns) {
+      const match = input.match(pattern);
+      if (match && match[1]) {
+        const name = match[1].trim();
+        // Evitamos guardar palabras genéricas o muy cortas
+        if (name.length > 2 && name.split(" ").length <= 3) {
+          this.userName = name;
+          localStorage.setItem("chat_user_name", name);
+          return `¡Entendido! Te recordaré como <strong>${name}</strong>. 😊`;
+        }
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Intenta resolver una operación matemática de forma segura
+   */
+  tryMath(input) {
+    // 1. Limpieza y normalización de palabras comunes a símbolos
+    let mathExpr = input.toLowerCase()
+      .replace(/mas/g, "+")
+      .replace(/menos/g, "-")
+      .replace(/por/g, "*")
+      .replace(/entre|dividido/g, "/")
+      .replace(/[^0-9+\-*/().\s]/g, ""); // Eliminamos todo lo que no sea matemático
+
+    // 2. Validamos que tenga al menos un número y un operador para no confundir con IDs o años
+    const hasNumber = /[0-9]/.test(mathExpr);
+    const hasOperator = /[+\-*/]/.test(mathExpr);
+
+    if (hasNumber && hasOperator) {
+      try {
+        // 3. Ejecución segura: Solo si la expresión limpia coincide exactamente con el patrón permitido
+        // Patrón: Solo números, operadores, paréntesis y puntos. No permite letras ni funciones.
+        const safePattern = /^[0-9+\-*/().\s]+$/;
+        if (safePattern.test(mathExpr)) {
+          // Usamos Function en lugar de eval para mayor aislamiento
+          const result = new Function(`'use strict'; return (${mathExpr})`)();
+          
+          if (typeof result === 'number' && !isNaN(result) && isFinite(result)) {
+             // Redondeamos a 2 decimales si es necesario
+            const finalResult = Math.round(result * 100) / 100;
+            return `He procesado los datos en mi núcleo aritmético 🔢<br><br>El resultado es: <strong>${finalResult}</strong>`;
+          }
+        }
+      } catch (e) {
+        return null; // Si falla el cálculo, seguimos al fallback normal
+      }
+    }
+    return null;
+  }
+
   getGenerators() {
     return {
+      welcome: () => {
+        const exp = this.getYearsSince(this.content.personal_info.experience_start_year);
+        if (this.userName) {
+          return `¡Bienvenido de nuevo, <strong>${this.userName}</strong>! 👋 Soy el asistente de Nithel. ¿En qué puedo ayudarte hoy?`;
+        } else {
+          this.isAwaitingName = true;
+          return `¡Hola! 👋 Soy el asistente virtual de <strong>${this.content.personal_info.name}</strong> (desarrollador con ${exp} años de experiencia).<br><br>Antes de empezar, <strong>¿cómo te llamas?</strong>`;
+        }
+      },
       greeting: () => {
         const exp = this.getYearsSince(this.content.personal_info.experience_start_year);
+        const namePart = this.userName ? `, <strong>${this.userName}</strong>` : "";
         const greets = [
-          `¡Hola! 👋 Soy <strong>${this.content.personal_info.name}</strong>, con ${exp} años de experiencia. ¿Qué quieres saber?`,
-          `¡Ey! ¿Qué tal? Soy <strong>${this.content.personal_info.name}</strong>, un gusto saludarte.`,
-          `¡Saludos! Soy <strong>${this.content.personal_info.name}</strong>. ¿En qué puedo ayudarte hoy?`
+          `¡Hola${namePart}! 👋 Soy <strong>${this.content.personal_info.name}</strong>, con ${exp} años de experiencia. ¿En qué puedo ayudarte?`,
+          `¡Ey${namePart}! ¿Qué tal? Soy <strong>${this.content.personal_info.name}</strong>, un gusto saludarte.`,
+          `¡Saludos${namePart}! Soy <strong>${this.content.personal_info.name}</strong>. ¿Qué te gustaría saber hoy?`
         ];
         return greets[Math.floor(Math.random() * greets.length)];
       },
@@ -170,6 +247,14 @@ export class ChatEngine {
         return `Mi formación académica incluye:<br><br>` +
           this.content.education.map(e => `<strong>${e.degree}</strong> en ${e.institution}`).join("<br>");
       },
+      who_am_i: () => {
+        if (this.userName) {
+          return `Te llamas <strong>${this.userName}</strong>. ¡Y tengo muy buena memoria! 😊`;
+        } else {
+          this.isAwaitingName = true;
+          return `Aún no me lo has dicho... 😶 ¿Cómo te llamas?`;
+        }
+      },
       fallback: () => {
         return `No estoy seguro de haber entendido 🤔<br>Quizás quieras preguntar sobre:<br>
         <a href="javascript:sendChat('Habilidades')">Habilidades</a>, 
@@ -180,6 +265,20 @@ export class ChatEngine {
   }
 
   getResponse(userInput) {
+    // Caso especial: El bot está esperando el nombre
+    if (this.isAwaitingName && userInput.trim().length > 0) {
+      const name = userInput.trim().split(" ").slice(0, 3).join(" "); // Tomamos máximo 3 palabras
+      this.userName = name;
+      localStorage.setItem("chat_user_name", name);
+      this.isAwaitingName = false;
+      
+      return {
+        text: `¡Un placer conocerte, <strong>${name}</strong>! 😊<br><br>¿Qué te gustaría saber sobre el trabajo de Nithel?`,
+        suggestions: ["Habilidades", "Experiencia", "Proyectos"],
+        intents: ["name_capture"]
+      };
+    }
+
     const matchedIntents = this.matchIntents(userInput);
     let intentsToRespond = matchedIntents;
 
@@ -196,7 +295,25 @@ export class ChatEngine {
       .map(id => intentsToRespond.find(i => i.id === id));
 
     const gens = this.getGenerators();
-    const responses = uniqueIntents.map(i => (gens[i.id] || gens.fallback)(userInput));
+    let responses = uniqueIntents.map(i => (gens[i.id] || gens.fallback)(userInput));
+
+    // Caso: No entendió nada (fallback). Intentamos matemáticas antes de rendirnos.
+    if (uniqueIntents.length === 1 && uniqueIntents[0].id === "fallback") {
+      const mathResult = this.tryMath(userInput);
+      if (mathResult) {
+        return {
+          text: mathResult,
+          suggestions: ["¿Qué más sabes hacer?", "Habilidades", "Experiencia"],
+          intents: ["math"]
+        };
+      }
+    }
+
+    // Si detectamos un nombre, añadimos la confirmación de memoria al principio
+    const memoryMsg = this.processMemory(userInput);
+    if (memoryMsg) {
+      responses = [memoryMsg, ...responses];
+    }
 
     return {
       text: responses.join("<br><br>"),

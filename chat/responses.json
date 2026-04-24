@@ -103,6 +103,12 @@
       "suggestions": ["¿Dónde estudiaste?", "¿Qué título tienes?", "¿Cuál es tu experiencia?"]
     },
     {
+      "id": "who_am_i",
+      "priority": 9,
+      "keywords": ["como me llamo", "quien soy", "mi nombre", "te acuerdas de mi", "sabes quien soy"],
+      "suggestions": ["¿Quién eres tú?", "¿Qué sabes hacer?", "¿Cómo te contacto?"]
+    },
+    {
       "id": "fallback",
       "priority": 0,
       "keywords": [],

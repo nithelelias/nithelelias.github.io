@@ -148,10 +148,11 @@ async function init() {
       }
     };
 
-    // Saludo inicial
-    const initial = engine.getResponse("hola");
-    showInteraction("Iniciando conexión...", initial.text);
-    renderSuggestions(initial.suggestions);
+    // Saludo inicial proactivo
+    const welcomeGen = engine.getGenerators().welcome;
+    const initial = welcomeGen();
+    showInteraction("Iniciando conexión...", initial);
+    renderSuggestions(["Habilidades", "Experiencia", "Contacto"]);
 
   } catch (err) {
     console.error(err);
