@@ -12,7 +12,7 @@
 
 :root {
   --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
+  --bg-secondary: #f7f7f4;
   --bg-tertiary: #f0f2f5;
   --surface: #ffffff;
   --border: #e5e7eb;
@@ -767,23 +767,8 @@ mark.search-hl {
 
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='80' viewBox='0 0 220 160'%3E%3Ctext x='30' y='90' font-size='42' font-family='Arial' font-weight='700' fill='rgba(255,255,255,1)'%3ENE%3C/text%3E%3C/svg%3E");
 
-  transform: scale(1.5)  rotate(-45deg);
+  transform: scale(1.5) rotate(-45deg);
+  transition: all 3s ease;
 
-  animation: move 15s linear infinite;
-  filter: blur(12px) brightness(1.2) contrast(1.5);
-  
-}
-
-@keyframes move {
-  from {
-    mask-position: 0px;
-    opacity: 0;
-    background-color: rgb(87, 84, 84);
-  }
-  
-  to {
-    mask-position: 10px 500px;
-    opacity: .25;
-    background-color: rgb(32, 84, 228);
-  }
+  background:var(--bg-tertiary);
 }
