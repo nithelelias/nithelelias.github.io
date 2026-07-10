@@ -3,81 +3,74 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="content-language" content="es" />
   <meta name="author" content="Nithel Elias" />
-  <meta name="title" content="Nithel Elias — Ingeniero de Software" />
+  <meta name="title" content="Nithel Elias — Software Engineer" />
   <meta name="description"
-    content="Portafolio de Nithel Elias, con mas de 10 años de experiencia siendo Ingeniero de Software trabajando en soluciones tecnológicas de todo índole." />
-  <title>Nithel Elias</title>
+    content="Portfolio of Nithel Elias, Software Engineer with 10+ years of experience in web development, dashboards, and game development." />
+  <title>Nithel Elias — Software Engineer</title>
   <link rel="icon" href="images/favico.ico" />
-  <link rel="preload" href="content.json" as="fetch" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="css/index.css" />
 </head>
 
 <body>
+  <div id="pattern-bg"></div>
+  <header id="topbar">
+    <div class="topbar-left">
+      <a href="/" class="topbar-logo">NE</a>
+    </div>
+    <div class="topbar-right">
+      <button id="lang-toggle" class="topbar-btn" title="Switch language"></button>
+      <button id="theme-toggle" class="topbar-btn" title="Toggle dark mode">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
 
-  <main id="app">
+  <main id="app"></main>
 
-  </main>
-  <p id="hidden-info">
-    NITHEL RENE ELIAS ALVAREZ
-    Systems Engineer | Frontend Developer | Web & Game Developer
-    Nasca, nithelelias@gmail.com
-    Portfolio: https://nithelelias.github.io/ | GitHub: https://github.com/nithelelias | Games:
-    https://nithelelias.itch.io/
-    PROFESSIONAL SUMMARY
-    Frontend-focused Software Engineer with 10+ years of experience building web applications,
-    dashboards, mobile solutions, and browser-based games. Strong background in React, Angular, and
-    Phaser.js, with experience in backend services, databases, and GIS platforms. Skilled in leading
-    teams, delivering scalable products, and working in Agile environments.
-    TECHNICAL SKILLS
-    Languages
-    JavaScript (ES6+), TypeScript, Java, C#, C++, Python
-    Frontend
-    React, Angular, Preact, HTML5, CSS3, jQuery, Three.js
-    Frontend Architecture
-    Microfrontends, modular design, design systems, reusable component libraries,
-    monorepos, Atomic Design
-    Testing & Quality
-    Jest, unit testing, integration testing, test-driven development (TDD), code reviews,
-    CI/CD pipelines
-    Backend
-    Node.js, PHP, Java, Python, REST APIs, Web Services
-    Game & Graphics Development
-    Phaser.js, Godot, Unity, Canvas API, WebGL, real-time rendering
-    Databases
-    SQL Server, Oracle, MySQL, PostgresSQL
-    DevOps & Collaboration
-    Git, GitHub, Azure DevOps, Trello, Scrum, Kanban, Agile, CI/CD, team leadership
-    PROFESSIONAL EXPERIENCE
-    Pragma S.A. — Frontend Developer & Web Game Developer (2022–Present)
-    · Developed Angular and React web applications and enterprise dashboards
-    · Built custom canvas-based visualization plugins
-    · Led frontend development initiatives
-    · Created browser games using Phaser.js
-    Ludycom — Software Engineer & GIS Support Engineer (2012–2022)
-    · Mobile development for Android and Windows Mobile
-    · SQL Server and Oracle database administration
-    · C# .NET desktop and mobile applications
-    · ArcGIS JavaScript API and Runtime solutions
-    · AngularJS and Bootstrap web apps
-    · Windows Server administration and Python scripting
-    Gijutsu Designes — Web Developer (2011–2012)
-    · PHP intranet systems and MySQL databases
-    · CSS and jQuery web interfaces
-    · Flash ActionScript applications
-    Earlier Experience
-    · Database Administration Intern – Access America
-    · HR Systems Intern – Acoolsure Atlántico
-    · IT Support Technician – Sistemas y Servicios Sislitoral
-    EDUCATION
-    · Systems Engineering Degree – Politécnico de la Costa Atlántica
-    · Technologist in Information Systems – Instituto Tecnológico de Soledad Atlántico ITSA
-    · Technical Degree in Information Systems – Instituto Tecnológico de Soledad Atlántico
-    ITSA
-  </p>
+  <button id="search-toggle" aria-label="Open search">
+    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+  </button>
+  <div id="search-bar">
+    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <span id="search-display"></span>
+    <span id="search-placeholder">Type to search...</span>
+    <span id="search-match-count" class="hidden"></span>
+    <button id="search-clear" class="hidden" aria-label="Clear search">&times;</button>
+  </div>
+
+  <footer id="footer">
+    <p id="footer-text"></p>
+  </footer>
+
   <script type="module" src="index.js"></script>
 </body>
 
